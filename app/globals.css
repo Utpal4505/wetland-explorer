@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Canvas / Atmospheric Background - warm, calm archival map off-white */
+    --background: 45 15% 97%;          /* #FAF9F6 */
+    --foreground: 152 14% 12%;         /* #1A221E - deep botanical charcoal */
+
+    /* Surfaces */
+    --surface: 0 0% 100%;              /* #FFFFFF - crisp neutral card */
+    --surface-muted: 45 12% 94%;        /* #F2F1EC - subtle map-panel inset */
+
+    /* Borders */
+    --border: 50 8% 86%;               /* #DCDBD6 - crisp hairline border */
+    --border-subtle: 50 10% 92%;       /* #ECEBE7 - softer inner divider */
+
+    /* Primary Ecological Accent - Muted botanical evergreen / wetland moss */
+    --primary: 152 38% 24%;            /* #26553C - authoritative, grounded wetland reed */
+    --primary-foreground: 0 0% 100%;   /* #FFFFFF */
+    --primary-hover: 152 42% 19%;      /* #1D432F */
+
+    /* Muted & Secondary */
+    --muted: 50 10% 92%;               /* #ECEBE6 */
+    --muted-foreground: 145 6% 40%;    /* #5F6D65 - accessible high-contrast secondary */
+
+    /* Accent - Soft wetland water-moss patina */
+    --accent: 146 22% 92%;             /* #E5EEE8 */
+    --accent-foreground: 152 40% 18%;  /* #1C3E2C */
+
+    /* Destructive */
+    --destructive: 0 72% 51%;          /* #D93838 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Precision Ring & Metrics */
+    --ring: 152 38% 24%;
+    --radius: 0.5rem;                  /* 8px */
+  }
+
+  .dark {
+    /* Canvas / Atmospheric Background - deep slate/charcoal night atlas */
+    --background: 152 12% 7%;          /* #0F1411 - deep ecological slate */
+    --foreground: 140 8% 92%;          /* #E8EDE9 - soft parchment white */
+
+    /* Surfaces */
+    --surface: 150 9% 10%;             /* #161C18 - elevated atlas panel */
+    --surface-muted: 150 8% 14%;       /* #202722 - recessed map panel */
+
+    /* Borders */
+    --border: 150 7% 18%;              /* #2A332C - subtle night grid border */
+    --border-subtle: 150 7% 13%;       /* #1E2520 */
+
+    /* Primary Ecological Accent - luminous wetland moss */
+    --primary: 149 32% 48%;            /* #51A478 - gentle, legible moss accent */
+    --primary-foreground: 152 24% 8%;  /* #0E1712 */
+    --primary-hover: 149 36% 54%;      /* #61B588 */
+
+    /* Muted & Secondary */
+    --muted: 150 8% 15%;               /* #222924 */
+    --muted-foreground: 145 7% 62%;    /* #95A39A - crisp legible contrast */
+
+    /* Accent */
+    --accent: 150 11% 16%;             /* #243028 */
+    --accent-foreground: 145 15% 90%;  /* #E2EAE5 */
+
+    /* Destructive */
+    --destructive: 0 65% 55%;          /* #E04848 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Precision Ring & Metrics */
+    --ring: 149 32% 48%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Typography Scale Presets */
+@layer utilities {
+  .text-display {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.12];
+  }
+  .text-h1 {
+    @apply text-2xl sm:text-3xl font-semibold tracking-tight leading-tight;
+  }
+  .text-h2 {
+    @apply text-xl sm:text-2xl font-semibold tracking-tight leading-snug;
+  }
+  .text-h3 {
+    @apply text-lg sm:text-xl font-medium tracking-tight leading-snug;
+  }
+  .text-body {
+    @apply text-base font-normal leading-relaxed text-foreground;
+  }
+  .text-small {
+    @apply text-sm font-normal leading-normal;
+  }
+  .text-caption {
+    @apply text-xs font-normal text-muted-foreground leading-normal;
+  }
+  .text-label {
+    @apply text-xs font-medium uppercase tracking-wider text-muted-foreground;
+  }
+  .text-data {
+    @apply font-mono text-sm tracking-tight tabular-nums;
+  }
+}
