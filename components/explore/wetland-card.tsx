@@ -33,7 +33,10 @@ export function WetlandCard({ wetland, className }: WetlandCardProps) {
       )}
     >
       {/* Top Media Viewport */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-muted">
+      <Link
+        href={`/wetlands/${wetland.id}`}
+        className="relative aspect-[16/10] w-full overflow-hidden bg-surface-muted block cursor-pointer"
+      >
         {!imageError ? (
           <Image
             src={wetland.imageUrl}
@@ -84,23 +87,26 @@ export function WetlandCard({ wetland, className }: WetlandCardProps) {
             {latFormatted}, {lngFormatted}
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-4 sm:p-5 space-y-3">
         {/* Name & Quick Action Header */}
         <div className="space-y-1">
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="text-lg font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+          <Link
+            href={`/wetlands/${wetland.id}`}
+            className="flex items-start justify-between gap-2 group/title"
+          >
+            <h3 className="text-lg font-semibold tracking-tight text-foreground transition-colors group-hover/title:text-primary">
               {wetland.name}
             </h3>
             <span
-              className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-surface-muted text-muted-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+              className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-surface-muted text-muted-foreground transition-colors group-hover/title:bg-primary group-hover/title:text-primary-foreground"
               aria-hidden="true"
             >
               <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* Short Place Description */}
@@ -130,14 +136,7 @@ export function WetlandCard({ wetland, className }: WetlandCardProps) {
           </div>
 
           <Link
-            href={`/explore#${wetland.id}`}
-            onClick={(e) => {
-              // Pre-configured for Phase 3 profile navigation
-              e.preventDefault();
-              // Smoothly anchor or highlight
-              const el = document.getElementById(wetland.id);
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
+            href={`/wetlands/${wetland.id}`}
             className="text-xs font-medium text-primary hover:underline inline-flex items-center gap-1"
           >
             <span>Record Details</span>
