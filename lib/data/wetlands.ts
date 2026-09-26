@@ -1,4 +1,4 @@
-import { Wetland } from "@/types/wetland";
+import { Wetland, WildlifeSpecies, IucnStatusCode } from "@/types/wetland";
 
 export const WETLANDS_DATA: Wetland[] = [
   {
@@ -642,8 +642,8 @@ export const WETLANDS_DATA: Wetland[] = [
         "Supplies over 40% of the potable municipal water for the population of Bhopal and powers local water sports and recreation.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Gentle shoreline ripples and emergent reeds of the Upper Lake at Bhoj Wetland.",
+      "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Morning mist and emergent reed beds across the Upper Lake basin at Bhoj Wetland, Bhopal.",
     keyWildlife: [
       "Sarus Crane",
       "White-rumped Vulture",
@@ -807,4 +807,292 @@ export function getWetlandBySlug(slug: string): Wetland | undefined {
 // Helper to return all slugs for static path generation
 export function getAllWetlandSlugs(): string[] {
   return WETLANDS_DATA.map((w) => w.id);
+}
+
+// Authoritative biological metadata mapping for wetland fauna
+export const SPECIES_METADATA_MAP: Record<
+  string,
+  {
+    scientificName: string;
+    taxa: "Avifauna" | "Mammal" | "Aquatic & Fish" | "Reptile";
+    iucnStatus: IucnStatusCode;
+    seasonality: "Resident" | "Winter Migrant" | "Breeding Visitor" | "Endemic Resident";
+  }
+> = {
+  "Irrawaddy Dolphin": {
+    scientificName: "Orcaella brevirostris",
+    taxa: "Mammal",
+    iucnStatus: "EN",
+    seasonality: "Endemic Resident",
+  },
+  "Greater Flamingo": {
+    scientificName: "Phoenicopterus roseus",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "White-bellied Sea Eagle": {
+    scientificName: "Haliaeetus leucogaster",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Fishing Cat": {
+    scientificName: "Prionailurus viverrinus",
+    taxa: "Mammal",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Green Sea Turtle": {
+    scientificName: "Chelonia mydas",
+    taxa: "Reptile",
+    iucnStatus: "EN",
+    seasonality: "Breeding Visitor",
+  },
+  "Royal Bengal Tiger": {
+    scientificName: "Panthera tigris tigris",
+    taxa: "Mammal",
+    iucnStatus: "EN",
+    seasonality: "Endemic Resident",
+  },
+  "Estuarine Crocodile": {
+    scientificName: "Crocodylus porosus",
+    taxa: "Reptile",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Northern River Terrapin": {
+    scientificName: "Batagur baska",
+    taxa: "Reptile",
+    iucnStatus: "CR",
+    seasonality: "Resident",
+  },
+  "Sangai Brow-antlered Deer": {
+    scientificName: "Rucervus eldii eldii",
+    taxa: "Mammal",
+    iucnStatus: "CR",
+    seasonality: "Endemic Resident",
+  },
+  "Indian Python": {
+    scientificName: "Python molurus",
+    taxa: "Reptile",
+    iucnStatus: "NT",
+    seasonality: "Resident",
+  },
+  "Spot-billed Duck": {
+    scientificName: "Anas poecilorhyncha",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Brown Fish Owl": {
+    scientificName: "Ketupa zeylonensis",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Common Teal": {
+    scientificName: "Anas crecca",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "Sarus Crane": {
+    scientificName: "Grus antigone",
+    taxa: "Avifauna",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Painted Stork": {
+    scientificName: "Mycteria leucocephala",
+    taxa: "Avifauna",
+    iucnStatus: "NT",
+    seasonality: "Breeding Visitor",
+  },
+  "Bar-headed Goose": {
+    scientificName: "Anser indicus",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "Black-necked Stork": {
+    scientificName: "Ephippiorhynchus asiaticus",
+    taxa: "Avifauna",
+    iucnStatus: "NT",
+    seasonality: "Resident",
+  },
+  "Sambar Deer": {
+    scientificName: "Rusa unicolor",
+    taxa: "Mammal",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Indian Spot-billed Duck": {
+    scientificName: "Anas poecilorhyncha",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Malabar Grey Hornbill": {
+    scientificName: "Ocyceros griseus",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Endemic Resident",
+  },
+  "Pearl Spot (Karimeen)": {
+    scientificName: "Etroplus suratensis",
+    taxa: "Aquatic & Fish",
+    iucnStatus: "LC",
+    seasonality: "Endemic Resident",
+  },
+  "Giant Freshwater Prawn": {
+    scientificName: "Macrobrachium rosenbergii",
+    taxa: "Aquatic & Fish",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Smooth-coated Otter": {
+    scientificName: "Lutrogale perspicillata",
+    taxa: "Mammal",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Indus River Dolphin": {
+    scientificName: "Platanista minor",
+    taxa: "Mammal",
+    iucnStatus: "EN",
+    seasonality: "Endemic Resident",
+  },
+  "Tufted Duck": {
+    scientificName: "Aythya fuligula",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "Cotton Pygmy Goose": {
+    scientificName: "Nettapus coromandelianus",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Indian Flapshell Turtle": {
+    scientificName: "Lissemys punctata",
+    taxa: "Reptile",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Black-necked Crane": {
+    scientificName: "Grus nigricollis",
+    taxa: "Avifauna",
+    iucnStatus: "NT",
+    seasonality: "Breeding Visitor",
+  },
+  "Tibetan Wild Ass (Kiang)": {
+    scientificName: "Equus kiang",
+    taxa: "Mammal",
+    iucnStatus: "LC",
+    seasonality: "Endemic Resident",
+  },
+  "Snow Leopard": {
+    scientificName: "Panthera uncia",
+    taxa: "Mammal",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Brown-headed Gull": {
+    scientificName: "Chroicocephalus brunnicephalus",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Breeding Visitor",
+  },
+  "Asian Elephant": {
+    scientificName: "Elephas maximus",
+    taxa: "Mammal",
+    iucnStatus: "EN",
+    seasonality: "Resident",
+  },
+  "Greater Adjutant Stork": {
+    scientificName: "Leptoptilos dubius",
+    taxa: "Avifauna",
+    iucnStatus: "EN",
+    seasonality: "Breeding Visitor",
+  },
+  "Spot-billed Pelican": {
+    scientificName: "Pelecanus philippensis",
+    taxa: "Avifauna",
+    iucnStatus: "NT",
+    seasonality: "Resident",
+  },
+  "Lesser Adjutant": {
+    scientificName: "Leptoptilos javanicus",
+    taxa: "Avifauna",
+    iucnStatus: "VU",
+    seasonality: "Resident",
+  },
+  "Ganges River Dolphin": {
+    scientificName: "Platanista gangetica",
+    taxa: "Mammal",
+    iucnStatus: "EN",
+    seasonality: "Resident",
+  },
+  "White-rumped Vulture": {
+    scientificName: "Gyps bengalensis",
+    taxa: "Avifauna",
+    iucnStatus: "CR",
+    seasonality: "Resident",
+  },
+  "Eurasian Coot": {
+    scientificName: "Fulica atra",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "Red-crested Pochard": {
+    scientificName: "Netta rufina",
+    taxa: "Avifauna",
+    iucnStatus: "LC",
+    seasonality: "Winter Migrant",
+  },
+  "Blackbuck": {
+    scientificName: "Antilope cervicapra",
+    taxa: "Mammal",
+    iucnStatus: "LC",
+    seasonality: "Resident",
+  },
+  "Olive Ridley Sea Turtle": {
+    scientificName: "Lepidochelys olivacea",
+    taxa: "Reptile",
+    iucnStatus: "VU",
+    seasonality: "Breeding Visitor",
+  },
+  "Spoon-billed Sandpiper": {
+    scientificName: "Calidris pygmaea",
+    taxa: "Avifauna",
+    iucnStatus: "CR",
+    seasonality: "Winter Migrant",
+  },
+};
+
+export function getWetlandWildlife(wetland: Wetland): WildlifeSpecies[] {
+  if (wetland.wildlifeDetails && wetland.wildlifeDetails.length > 0) {
+    return wetland.wildlifeDetails;
+  }
+  return wetland.keyWildlife.map((speciesName) => {
+    const meta = SPECIES_METADATA_MAP[speciesName];
+    if (meta) {
+      return {
+        commonName: speciesName,
+        scientificName: meta.scientificName,
+        taxa: meta.taxa,
+        iucnStatus: meta.iucnStatus,
+        seasonality: meta.seasonality,
+      };
+    }
+    return {
+      commonName: speciesName,
+      taxa: "Avifauna",
+      iucnStatus: "LC",
+      seasonality: "Resident",
+    };
+  });
 }

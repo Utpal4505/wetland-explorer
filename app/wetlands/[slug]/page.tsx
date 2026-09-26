@@ -5,6 +5,8 @@ import { ArrowLeft, Compass } from "lucide-react";
 import { getWetlandBySlug, getAllWetlandSlugs } from "@/lib/data/wetlands";
 import { ProfileHeader } from "@/components/wetlands/profile-header";
 import { ProfileHero } from "@/components/wetlands/profile-hero";
+import { ProfileNav } from "@/components/wetlands/profile-nav";
+import { ProfileSidebar } from "@/components/wetlands/profile-sidebar";
 import { ProfileQuickFacts } from "@/components/wetlands/profile-quick-facts";
 import { ProfileAbout } from "@/components/wetlands/profile-about";
 import { ProfileImportance } from "@/components/wetlands/profile-importance";
@@ -53,53 +55,71 @@ export default async function WetlandProfilePage({
   }
 
   return (
-    <article className="flex-1 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-10">
+    <article className="flex-1 py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
       {/* 1. Profile Header & Context */}
       <ProfileHeader wetland={wetland} />
 
       {/* 2. Landscape Hero Image */}
       <ProfileHero wetland={wetland} />
 
-      {/* 3. Quick Facts & Cartographic Metrics */}
-      <ProfileQuickFacts wetland={wetland} />
+      {/* 3. Sticky In-Page Navigation Bar */}
+      <ProfileNav
+        wildlifeCount={wetland.keyWildlife.length}
+        threatsCount={wetland.threats.length}
+        sourcesCount={wetland.sources.length}
+      />
 
-      <Separator />
+      {/* Mobile/Tablet Quick Facts (Visible only on < lg screens) */}
+      <div className="block lg:hidden">
+        <ProfileQuickFacts wetland={wetland} />
+      </div>
 
-      {/* 4. About & Narrative Overview */}
-      <ProfileAbout wetland={wetland} />
+      {/* 4. Asymmetric 2-Column Discovery Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        {/* Main Content Column (Left 8 cols) */}
+        <div className="lg:col-span-8 space-y-10">
+          {/* About / Ecosystem Narrative */}
+          <ProfileAbout wetland={wetland} />
 
-      <Separator />
+          <Separator />
 
-      {/* 5. Structured Importance (Ecological, Wildlife, Local) */}
-      <ProfileImportance wetland={wetland} />
+          {/* Structured Importance (Ecological, Wildlife, Local) */}
+          <ProfileImportance wetland={wetland} />
 
-      <Separator />
+          <Separator />
 
-      {/* 6. Key Wildlife */}
-      <ProfileWildlife wetland={wetland} />
+          {/* Key Wildlife with Taxa & IUCN Badges */}
+          <ProfileWildlife wetland={wetland} />
 
-      <Separator />
+          <Separator />
 
-      {/* 7. Documented Pressures & Threats */}
-      <ProfileThreats wetland={wetland} />
+          {/* Documented Environmental Pressures & Threat Dossier */}
+          <ProfileThreats wetland={wetland} />
 
-      <Separator />
+          <Separator />
 
-      {/* 8. Sources & Academic Bibliography */}
-      <ProfileSources wetland={wetland} />
+          {/* Scientific Verification & Authoritative Bibliography */}
+          <ProfileSources wetland={wetland} />
 
-      {/* Bottom Atlas Return Action */}
-      <div className="pt-6 pb-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-        <Button asChild variant="outline" size="default">
-          <Link href="/explore" className="gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            <span>Return to Explore Catalog</span>
-          </Link>
-        </Button>
+          {/* Bottom Atlas Return Action */}
+          <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+            <Button asChild variant="outline" size="default">
+              <Link href="/explore" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span>Return to Explore Catalog</span>
+              </Link>
+            </Button>
 
-        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-          <Compass className="h-3.5 w-3.5 text-primary" />
-          <span>Wetland Explorer • Place Record ID: {wetland.id}</span>
+            <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
+              <Compass className="h-3.5 w-3.5 text-primary" />
+              <span>Digital Atlas Dossier • Record ID: {wetland.id}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Sticky Desktop Atlas Sidebar (Right 4 cols) */}
+        <div className="hidden lg:block lg:col-span-4 sticky top-28 space-y-6">
+          <ProfileSidebar wetland={wetland} />
         </div>
       </div>
     </article>

@@ -1,88 +1,126 @@
 import { Wetland, ThreatSeverity } from "@/types/wetland";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { AlertTriangle, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface ProfileThreatsProps {
   wetland: Wetland;
 }
 
-function getSeverityBadge(severity: ThreatSeverity) {
+function getSeverityDetails(severity: ThreatSeverity) {
   switch (severity) {
     case "Critical":
+      return {
+        label: "Critical Risk",
+        barColor: "bg-red-600 dark:bg-red-500",
+        bars: 4,
+        badgeBg: "bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30",
+      };
     case "Severe":
-      return (
-        <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] font-mono font-medium bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
-          {severity} Pressure
-        </span>
-      );
+      return {
+        label: "Severe Risk",
+        barColor: "bg-rose-500",
+        bars: 3,
+        badgeBg: "bg-rose-500/15 text-rose-700 dark:text-rose-400 border-rose-500/30",
+      };
     case "High":
-      return (
-        <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] font-mono font-medium bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
-          High Pressure
-        </span>
-      );
+      return {
+        label: "High Pressure",
+        barColor: "bg-amber-500",
+        bars: 2,
+        badgeBg: "bg-amber-500/15 text-amber-700 dark:text-amber-400 border-amber-500/30",
+      };
     case "Moderate":
-      return (
-        <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] font-mono font-medium bg-surface-muted text-muted-foreground border border-border">
-          Moderate Pressure
-        </span>
-      );
+      return {
+        label: "Moderate Pressure",
+        barColor: "bg-yellow-500",
+        bars: 2,
+        badgeBg: "bg-yellow-500/15 text-yellow-800 dark:text-yellow-400 border-yellow-500/30",
+      };
     case "Low":
     default:
-      return (
-        <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-[10px] font-mono font-medium bg-primary/10 text-primary border border-primary/20">
-          Low Pressure
-        </span>
-      );
+      return {
+        label: "Low Pressure",
+        barColor: "bg-emerald-500",
+        bars: 1,
+        badgeBg: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30",
+      };
   }
 }
 
 export function ProfileThreats({ wetland }: ProfileThreatsProps) {
   return (
-    <section className="space-y-4">
+    <section id="threats" className="scroll-mt-28 space-y-4">
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <AlertCircle className="h-4 w-4" />
-          <span>Conservation Assessment</span>
+          <span>Ecological Risk Assessment</span>
         </div>
         <div className="flex items-center justify-between">
           <h2 className="text-h2">Documented Pressures & Threats</h2>
           {wetland.threatLevel && (
-            <Badge variant="outline" size="sm" className="font-mono text-[11px]">
-              Overall Status: {wetland.threatLevel}
+            <Badge variant="outline" size="sm" className="font-mono text-xs">
+              Baseline Status: {wetland.threatLevel}
             </Badge>
           )}
         </div>
         <p className="text-small text-muted-foreground">
-          Factual anthropogenic and environmental pressures recorded in official site assessments and state management reports.
+          Factual anthropogenic and environmental pressures recorded in official site assessments, Ramsar management plans, and State Wetland Authority reports.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-        {wetland.threats.map((threat) => (
-          <Card
-            key={threat.title}
-            className="border border-border bg-surface flex flex-col justify-between"
-          >
-            <CardHeader className="pb-2">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-[11px] font-mono uppercase text-muted-foreground">
-                  Pressure Factor
-                </span>
-                {getSeverityBadge(threat.severity)}
-              </div>
-              <CardTitle className="text-sm font-semibold mt-2 leading-snug">
-                {threat.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-small text-muted-foreground leading-relaxed">
-                {threat.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="space-y-3 pt-1">
+        {wetland.threats.map((threat) => {
+          const severityInfo = getSeverityDetails(threat.severity);
+          return (
+            <Card
+              key={threat.title}
+              className="border border-border/80 bg-surface/90 hover:border-border transition-colors overflow-hidden"
+            >
+              <CardContent className="p-4 sm:p-5 space-y-2.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-surface-muted text-muted-foreground">
+                      <AlertTriangle className="h-3.5 w-3.5" />
+                    </span>
+                    <h3 className="text-sm font-semibold text-foreground">
+                      {threat.title}
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center gap-3 self-end sm:self-auto">
+                    {/* Visual Risk Meter Bars */}
+                    <div
+                      className="hidden sm:flex items-center gap-1"
+                      title={`Severity Rating: ${threat.severity}`}
+                    >
+                      {[1, 2, 3, 4].map((step) => (
+                        <div
+                          key={step}
+                          className={`h-2 w-3 rounded-xs ${
+                            step <= severityInfo.bars
+                              ? severityInfo.barColor
+                              : "bg-surface-muted border border-border"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    <span
+                      className={`inline-flex items-center px-2 py-0.5 rounded-sm text-[11px] font-mono font-semibold border ${severityInfo.badgeBg}`}
+                    >
+                      {severityInfo.label}
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-small text-muted-foreground leading-relaxed">
+                  {threat.description}
+                </p>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </section>
   );

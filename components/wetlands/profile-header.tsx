@@ -17,13 +17,18 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
   }`;
 
   return (
-    <div className="space-y-4">
+    <header className="space-y-4">
       {/* Top Back Action & Navigation Breadcrumbs */}
       <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-        <Button asChild variant="ghost" size="sm" className="-ml-2.5 h-8 gap-1.5 text-xs text-muted-foreground hover:text-foreground">
+        <Button
+          asChild
+          variant="ghost"
+          size="sm"
+          className="-ml-2.5 h-8 gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+        >
           <Link href="/explore">
             <ArrowLeft className="h-3.5 w-3.5" />
-            <span>Back to Explore</span>
+            <span>Back to Explore Catalog</span>
           </Link>
         </Button>
 
@@ -39,25 +44,25 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
       </div>
 
       {/* Main Title & Classification Header */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="accent" size="sm">
-            <Compass className="h-3 w-3 text-primary" />
+          <Badge variant="accent" size="sm" className="font-medium gap-1.5">
+            <Compass className="h-3.5 w-3.5 text-primary" />
             <span>{wetland.category}</span>
           </Badge>
-          <Badge variant="default" size="sm" className="font-semibold tracking-wide">
+          <Badge variant="default" size="sm" className="font-semibold tracking-wide shadow-xs">
             {wetland.designation} {wetland.designationYear ? `• ${wetland.designationYear}` : ""}
           </Badge>
           {wetland.biogeographicZone && (
-            <span className="hidden sm:inline-flex text-[11px] font-mono text-muted-foreground bg-surface-muted px-2 py-0.5 rounded-sm border border-border">
+            <span className="inline-flex text-[11px] font-mono text-muted-foreground bg-surface-muted px-2.5 py-0.5 rounded-sm border border-border">
               {wetland.biogeographicZone}
             </span>
           )}
         </div>
 
-        <h1 className="text-display">{wetland.name}</h1>
+        <h1 className="text-display sm:text-4xl lg:text-5xl">{wetland.name}</h1>
 
-        <div className="flex flex-wrap items-center gap-4 text-small text-muted-foreground pt-1">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-small text-muted-foreground">
           <span className="flex items-center gap-1.5 text-foreground font-medium">
             <MapPin className="h-4 w-4 text-primary shrink-0" />
             <span>{wetland.state}, {wetland.country ?? "India"}</span>
@@ -70,12 +75,12 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
             <>
               <span>•</span>
               <span className="text-data text-xs text-muted-foreground">
-                {wetland.elevationMeters}m Elev.
+                {wetland.elevationMeters}m MSL
               </span>
             </>
           )}
         </div>
       </div>
-    </div>
+    </header>
   );
 }

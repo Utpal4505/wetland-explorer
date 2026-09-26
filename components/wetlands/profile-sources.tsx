@@ -8,23 +8,28 @@ interface ProfileSourcesProps {
 
 export function ProfileSources({ wetland }: ProfileSourcesProps) {
   return (
-    <section className="space-y-4 pt-2">
+    <section id="sources" className="scroll-mt-28 space-y-4 pt-2">
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <FileText className="h-4 w-4" />
-          <span>Scientific Verification</span>
+          <span>Scientific Verification & CHE110 Compliance</span>
         </div>
         <h2 className="text-h2">Authoritative Sources & Bibliography</h2>
         <p className="text-small text-muted-foreground">
-          Official registries, governmental management plans, and academic studies establishing factual validity.
+          Official registries, governmental management plans, and peer-reviewed studies establishing factual validity for research and project documentation.
         </p>
       </div>
 
       <Card className="border border-border bg-surface">
         <CardHeader className="border-b border-border/70 pb-3">
-          <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-            <ShieldCheck className="h-4 w-4 text-primary" />
-            <span>VERIFIED BIBLIOGRAPHIC ENTRIES ({wetland.sources.length})</span>
+          <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              <span>VERIFIED BIBLIOGRAPHIC ENTRIES ({wetland.sources.length})</span>
+            </span>
+            <span className="text-[11px] text-foreground/70 hidden sm:inline-block">
+              Peer-Reviewed / Institutional Registry
+            </span>
           </div>
         </CardHeader>
         <CardContent className="divide-y divide-border/60 p-0">
@@ -35,7 +40,7 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
             >
               <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-xs text-primary font-semibold">
+                  <span className="font-mono text-xs text-primary font-bold">
                     [{String(index + 1).padStart(2, "0")}]
                   </span>
                   <span className="text-sm font-semibold text-foreground">
@@ -53,7 +58,7 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
                   {source.citationType && (
                     <>
                       <span>•</span>
-                      <span className="font-mono text-[10px] uppercase text-foreground/70 bg-surface-muted px-1.5 py-0.5 rounded-xs border border-border">
+                      <span className="font-mono text-[10px] uppercase text-foreground/80 bg-surface-muted px-1.5 py-0.5 rounded-xs border border-border">
                         {source.citationType}
                       </span>
                     </>
