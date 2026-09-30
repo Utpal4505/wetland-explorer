@@ -8,7 +8,7 @@ interface ProfileSourcesProps {
 
 export function ProfileSources({ wetland }: ProfileSourcesProps) {
   return (
-    <section id="sources" className="scroll-mt-28 space-y-4 pt-2">
+    <section id="sources" className="scroll-mt-28 space-y-4">
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <FileText className="h-4 w-4" />

@@ -51,7 +51,7 @@ export function ProfileThreats({ wetland }: ProfileThreatsProps) {
   const overallSeverity = getSeverityDetails(wetland.threatLevel ?? "Moderate");
 
   return (
-    <section id="threats" className="scroll-mt-28 space-y-4 pt-1">
+    <section id="threats" className="scroll-mt-28 space-y-4">
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <AlertCircle className="h-4 w-4" />

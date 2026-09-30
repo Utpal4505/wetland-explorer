@@ -50,6 +50,7 @@ export function ProfileTabs({ wetland }: ProfileTabsProps) {
   };
 
   const navItems = [
+    { id: "all" as TabKey, label: "All Sections", icon: Layers },
     { id: "overview" as TabKey, label: "Overview", icon: BookOpen },
     { id: "values" as TabKey, label: "Ecological Value", icon: Sparkles },
     {
@@ -67,7 +68,6 @@ export function ProfileTabs({ wetland }: ProfileTabsProps) {
       label: `Sources (${wetland.sources.length})`,
       icon: FileText,
     },
-    { id: "all" as TabKey, label: "All Sections", icon: Layers },
   ];
 
   return (
