@@ -1,7 +1,6 @@
 import { Wetland, ThreatSeverity } from "@/types/wetland";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertTriangle, AlertCircle } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 interface ProfileThreatsProps {
   wetland: Wetland;
@@ -14,28 +13,28 @@ function getSeverityDetails(severity: ThreatSeverity) {
         label: "Critical Risk",
         barColor: "bg-red-600 dark:bg-red-500",
         bars: 4,
-        badgeBg: "bg-red-500/15 text-red-700 dark:text-red-400 border-red-500/30",
+        badgeBg: "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
       };
     case "Severe":
       return {
         label: "Severe Risk",
         barColor: "bg-rose-500",
-        bars: 3,
-        badgeBg: "bg-rose-500/15 text-rose-700 dark:text-rose-400 border-rose-500/30",
+        bars: 4,
+        badgeBg: "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30",
       };
     case "High":
       return {
         label: "High Pressure",
-        barColor: "bg-amber-500",
-        bars: 2,
-        badgeBg: "bg-amber-500/15 text-amber-700 dark:text-amber-400 border-amber-500/30",
+        barColor: "bg-orange-500",
+        bars: 3,
+        badgeBg: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
       };
     case "Moderate":
       return {
         label: "Moderate Pressure",
-        barColor: "bg-yellow-500",
+        barColor: "bg-sky-500",
         bars: 2,
-        badgeBg: "bg-yellow-500/15 text-yellow-800 dark:text-yellow-400 border-yellow-500/30",
+        badgeBg: "bg-sky-500/15 text-sky-600 dark:text-sky-400 border-sky-500/30",
       };
     case "Low":
     default:
@@ -43,25 +42,29 @@ function getSeverityDetails(severity: ThreatSeverity) {
         label: "Low Pressure",
         barColor: "bg-emerald-500",
         bars: 1,
-        badgeBg: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30",
+        badgeBg: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
       };
   }
 }
 
 export function ProfileThreats({ wetland }: ProfileThreatsProps) {
+  const overallSeverity = getSeverityDetails(wetland.threatLevel ?? "Moderate");
+
   return (
-    <section id="threats" className="scroll-mt-28 space-y-4">
+    <section id="threats" className="scroll-mt-28 space-y-4 pt-1">
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <AlertCircle className="h-4 w-4" />
           <span>Ecological Risk Assessment</span>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <h2 className="text-h2">Documented Pressures & Threats</h2>
           {wetland.threatLevel && (
-            <Badge variant="outline" size="sm" className="font-mono text-xs">
+            <span
+              className={`inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-mono font-semibold border ${overallSeverity.badgeBg}`}
+            >
               Baseline Status: {wetland.threatLevel}
-            </Badge>
+            </span>
           )}
         </div>
         <p className="text-small text-muted-foreground">
@@ -91,16 +94,16 @@ export function ProfileThreats({ wetland }: ProfileThreatsProps) {
                   <div className="flex items-center gap-3 self-end sm:self-auto">
                     {/* Visual Risk Meter Bars */}
                     <div
-                      className="hidden sm:flex items-center gap-1"
+                      className="flex items-center gap-1"
                       title={`Severity Rating: ${threat.severity}`}
                     >
                       {[1, 2, 3, 4].map((step) => (
                         <div
                           key={step}
-                          className={`h-2 w-3 rounded-xs ${
+                          className={`h-2.5 w-3.5 rounded-xs transition-colors ${
                             step <= severityInfo.bars
                               ? severityInfo.barColor
-                              : "bg-surface-muted border border-border"
+                              : "bg-surface-muted border border-border/70"
                           }`}
                         />
                       ))}

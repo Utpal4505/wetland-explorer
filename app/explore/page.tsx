@@ -110,10 +110,10 @@ export default function ExplorePage() {
 
       {/* Wetland Cards Grid or Empty State */}
       {filteredWetlands.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2 items-stretch">
           {filteredWetlands.map((wetland) => (
-            <div key={wetland.id} id={wetland.id}>
-              <WetlandCard wetland={wetland} />
+            <div key={wetland.id} id={wetland.id} className="h-full">
+              <WetlandCard wetland={wetland} className="h-full" />
             </div>
           ))}
         </div>

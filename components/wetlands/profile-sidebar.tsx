@@ -33,16 +33,16 @@ function getThreatStatusColor(status?: ThreatSeverity) {
       };
     case "High":
       return {
-        bg: "bg-amber-500/10 dark:bg-amber-500/20",
-        text: "text-amber-800 dark:text-amber-400",
-        border: "border-amber-500/30",
+        bg: "bg-orange-500/10 dark:bg-orange-500/20",
+        text: "text-orange-700 dark:text-orange-400",
+        border: "border-orange-500/30",
         label: "High Environmental Pressure",
       };
     case "Moderate":
       return {
-        bg: "bg-yellow-500/10 dark:bg-yellow-500/20",
-        text: "text-yellow-800 dark:text-yellow-400",
-        border: "border-yellow-500/30",
+        bg: "bg-sky-500/10 dark:bg-sky-500/20",
+        text: "text-sky-700 dark:text-sky-400",
+        border: "border-sky-500/30",
         label: "Moderate Ecological Watch",
       };
     case "Low":
