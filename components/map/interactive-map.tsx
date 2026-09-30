@@ -96,16 +96,15 @@ export function InteractiveMap({
       })
       .addTo(map);
 
-    // Initial CartoDB Tile Layer based on theme
+    // Initial Esri World Canvas Tile Layer based on theme (100% free, zero API key)
     const tileUrl = isDarkMode
-      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-      : "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
+      ? "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+      : "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}";
 
     const tileLayer = L.tileLayer(tileUrl, {
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      maxZoom: 19,
-      subdomains: "abcd",
+        '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Digital Atlas Canvas',
+      maxZoom: 16,
     }).addTo(map);
 
     tileLayerRef.current = tileLayer;
@@ -137,14 +136,13 @@ export function InteractiveMap({
     }
 
     const tileUrl = isDarkMode
-      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-      : "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
+      ? "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+      : "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}";
 
     const newTileLayer = L.tileLayer(tileUrl, {
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      maxZoom: 19,
-      subdomains: "abcd",
+        '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Digital Atlas Canvas',
+      maxZoom: 16,
     }).addTo(map);
 
     tileLayerRef.current = newTileLayer;
