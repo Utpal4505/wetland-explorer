@@ -809,6 +809,11 @@ export function getAllWetlandSlugs(): string[] {
   return WETLANDS_DATA.map((w) => w.id);
 }
 
+// Helper to return all wetlands
+export function getAllWetlands(): Wetland[] {
+  return WETLANDS_DATA;
+}
+
 // Authoritative biological metadata mapping for wetland fauna
 export const SPECIES_METADATA_MAP: Record<
   string,

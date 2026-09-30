@@ -144,7 +144,7 @@ export function AtlasParametersCard({ wetland }: { wetland: Wetland }) {
 
         <div className="pt-2">
           <Link
-            href="/map"
+            href={`/map?locate=${wetland.id}`}
             className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border bg-surface-muted px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
           >
             <Compass className="h-3.5 w-3.5 text-primary" />
