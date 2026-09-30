@@ -21,7 +21,7 @@ interface ProfileSidebarProps {
   wetland: Wetland;
 }
 
-function getThreatStatusColor(status?: ThreatSeverity) {
+export function getThreatStatusColor(status?: ThreatSeverity) {
   switch (status) {
     case "Critical":
     case "Severe":
@@ -56,9 +56,7 @@ function getThreatStatusColor(status?: ThreatSeverity) {
   }
 }
 
-export function ProfileSidebar({ wetland }: ProfileSidebarProps) {
-  const [copied, setCopied] = React.useState(false);
-
+export function AtlasParametersCard({ wetland }: { wetland: Wetland }) {
   const latFormatted = `${Math.abs(wetland.coordinates.lat).toFixed(4)}° ${
     wetland.coordinates.lat >= 0 ? "N" : "S"
   }`;
@@ -66,6 +64,135 @@ export function ProfileSidebar({ wetland }: ProfileSidebarProps) {
     wetland.coordinates.lng >= 0 ? "E" : "W"
   }`;
 
+  return (
+    <Card className="border border-border bg-surface shadow-xs">
+      <CardHeader className="border-b border-border/70 pb-3">
+        <div className="flex items-center justify-between">
+          <span className="text-label">ATLAS PARAMETERS</span>
+          <Badge variant="outline" size="sm" className="font-mono text-[10px]">
+            ID: {wetland.id}
+          </Badge>
+        </div>
+        <CardTitle className="text-sm font-semibold mt-1">
+          Geographic & Registry Profile
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="p-4 space-y-4">
+        <div className="space-y-3 divide-y divide-border/60 text-xs">
+          <div className="flex items-center justify-between pt-1">
+            <span className="flex items-center gap-1.5 text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>State</span>
+            </span>
+            <span className="font-semibold text-foreground">{wetland.state}</span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2.5">
+            <span className="flex items-center gap-1.5 text-muted-foreground">
+              <Maximize2 className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>Surface Area</span>
+            </span>
+            <span className="font-mono font-semibold text-foreground">
+              {wetland.areaKm2.toLocaleString()} km²
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2.5">
+            <span className="flex items-center gap-1.5 text-muted-foreground">
+              <Calendar className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>Designation</span>
+            </span>
+            <span className="font-semibold text-foreground">
+              {wetland.designationYear
+                ? `${wetland.designation} (${wetland.designationYear})`
+                : wetland.designation}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2.5">
+            <span className="flex items-center gap-1.5 text-muted-foreground">
+              <Compass className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>Coordinates</span>
+            </span>
+            <span className="font-mono text-[11px] font-semibold text-foreground">
+              {latFormatted}, {lngFormatted}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2.5">
+            <span className="flex items-center gap-1.5 text-muted-foreground">
+              <Mountain className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>Elevation</span>
+            </span>
+            <span className="font-mono font-semibold text-foreground">
+              {wetland.elevationMeters !== undefined
+                ? `${wetland.elevationMeters}m MSL`
+                : "Sea Level"}
+            </span>
+          </div>
+
+          <div className="flex items-start justify-between pt-2.5">
+            <span className="flex items-center gap-1.5 text-muted-foreground shrink-0">
+              <Globe2 className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>Biogeographic Zone</span>
+            </span>
+            <span className="font-medium text-right text-foreground max-w-[160px] leading-tight">
+              {wetland.biogeographicZone ?? "Subcontinent"}
+            </span>
+          </div>
+        </div>
+
+        <div className="pt-2">
+          <Link
+            href="/map"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border bg-surface-muted px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
+          >
+            <Compass className="h-3.5 w-3.5 text-primary" />
+            <span>Locate in Geographic Atlas</span>
+          </Link>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function ConservationStatusCard({ wetland }: { wetland: Wetland }) {
+  const threatTheme = getThreatStatusColor(wetland.threatLevel);
+
+  return (
+    <Card className="border border-border bg-surface shadow-xs">
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <span className="text-label">CONSERVATION ASSESSMENT</span>
+          <ShieldAlert className="h-3.5 w-3.5 text-muted-foreground" />
+        </div>
+        <CardTitle className="text-sm font-semibold mt-1">Ecosystem Health & Status</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 pt-1">
+        <div className={`rounded-md p-3 border ${threatTheme.bg} ${threatTheme.border}`}>
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+              Threat Status
+            </span>
+            <span className={`text-xs font-bold ${threatTheme.text}`}>
+              {wetland.threatLevel ?? "Moderate"}
+            </span>
+          </div>
+          <div className="text-xs font-medium text-foreground mt-1">
+            {threatTheme.label}
+          </div>
+        </div>
+
+        <p className="text-[11px] text-muted-foreground leading-relaxed">
+          Protected under the Ramsar Convention on Wetlands of International Importance and the Wetlands (Conservation and Management) Rules of India.
+        </p>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function CitationCard({ wetland }: { wetland: Wetland }) {
+  const [copied, setCopied] = React.useState(false);
   const citationText = `Wetland Explorer (${new Date().getFullYear()}). "${wetland.name} (${wetland.state}) — Digital Atlas Record". India Wetland Conservation Registry.`;
 
   const copyCitation = () => {
@@ -74,157 +201,44 @@ export function ProfileSidebar({ wetland }: ProfileSidebarProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const threatTheme = getThreatStatusColor(wetland.threatLevel);
+  return (
+    <Card className="border border-border bg-surface shadow-xs">
+      <CardHeader className="pb-2">
+        <span className="text-label">ACADEMIC CITATION</span>
+        <CardTitle className="text-sm font-semibold mt-0.5">Cite This Profile</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2.5 pt-0">
+        <div className="rounded-md bg-surface-muted p-2.5 text-[11px] font-mono text-muted-foreground leading-relaxed border border-border/60 break-words select-all">
+          {citationText}
+        </div>
+        <button
+          onClick={copyCitation}
+          type="button"
+          className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-border bg-surface py-1.5 text-xs font-medium text-foreground hover:bg-surface-muted transition-colors cursor-pointer"
+        >
+          {copied ? (
+            <>
+              <Check className="h-3.5 w-3.5 text-emerald-600" />
+              <span className="text-emerald-600 font-semibold">Citation Copied!</span>
+            </>
+          ) : (
+            <>
+              <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+              <span>Copy APA Bibliography Citation</span>
+            </>
+          )}
+        </button>
+      </CardContent>
+    </Card>
+  );
+}
 
+export function ProfileSidebar({ wetland }: ProfileSidebarProps) {
   return (
     <aside className="space-y-6">
-      {/* 1. Quick Facts Registry Panel */}
-      <Card className="border border-border bg-surface shadow-xs">
-        <CardHeader className="border-b border-border/70 pb-3">
-          <div className="flex items-center justify-between">
-            <span className="text-label">ATLAS PARAMETERS</span>
-            <Badge variant="outline" size="sm" className="font-mono text-[10px]">
-              ID: {wetland.id}
-            </Badge>
-          </div>
-          <CardTitle className="text-sm font-semibold mt-1">
-            Geographic & Registry Profile
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-4 space-y-4">
-          <div className="space-y-3 divide-y divide-border/60 text-xs">
-            <div className="flex items-center justify-between pt-1">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>State</span>
-              </span>
-              <span className="font-semibold text-foreground">{wetland.state}</span>
-            </div>
-
-            <div className="flex items-center justify-between pt-2.5">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Maximize2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Surface Area</span>
-              </span>
-              <span className="font-mono font-semibold text-foreground">
-                {wetland.areaKm2.toLocaleString()} km²
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between pt-2.5">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Calendar className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Designation</span>
-              </span>
-              <span className="font-semibold text-foreground">
-                {wetland.designationYear ? `${wetland.designation} (${wetland.designationYear})` : wetland.designation}
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between pt-2.5">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Compass className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Coordinates</span>
-              </span>
-              <span className="font-mono text-[11px] font-semibold text-foreground">
-                {latFormatted}, {lngFormatted}
-              </span>
-            </div>
-
-            <div className="flex items-center justify-between pt-2.5">
-              <span className="flex items-center gap-1.5 text-muted-foreground">
-                <Mountain className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Elevation</span>
-              </span>
-              <span className="font-mono font-semibold text-foreground">
-                {wetland.elevationMeters !== undefined
-                  ? `${wetland.elevationMeters}m MSL`
-                  : "Sea Level"}
-              </span>
-            </div>
-
-            <div className="flex items-start justify-between pt-2.5">
-              <span className="flex items-center gap-1.5 text-muted-foreground shrink-0">
-                <Globe2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>Biogeographic Zone</span>
-              </span>
-              <span className="font-medium text-right text-foreground max-w-[160px] leading-tight">
-                {wetland.biogeographicZone ?? "Subcontinent"}
-              </span>
-            </div>
-          </div>
-
-          <div className="pt-2">
-            <Link
-              href="/map"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border bg-surface-muted px-3 py-2 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-            >
-              <Compass className="h-3.5 w-3.5 text-primary" />
-              <span>Locate in Geographic Atlas</span>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* 2. Conservation Status Gauge */}
-      <Card className="border border-border bg-surface">
-        <CardHeader className="pb-2">
-          <div className="flex items-center justify-between">
-            <span className="text-label">CONSERVATION ASSESSMENT</span>
-            <ShieldAlert className="h-3.5 w-3.5 text-muted-foreground" />
-          </div>
-          <CardTitle className="text-sm font-semibold mt-1">Ecosystem Health & Status</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3 pt-1">
-          <div className={`rounded-md p-3 border ${threatTheme.bg} ${threatTheme.border}`}>
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
-                Threat Status
-              </span>
-              <span className={`text-xs font-bold ${threatTheme.text}`}>
-                {wetland.threatLevel ?? "Moderate"}
-              </span>
-            </div>
-            <div className="text-xs font-medium text-foreground mt-1">
-              {threatTheme.label}
-            </div>
-          </div>
-
-          <p className="text-[11px] text-muted-foreground leading-relaxed">
-            Protected under the Ramsar Convention on Wetlands of International Importance and the Wetlands (Conservation and Management) Rules of India.
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* 3. CHE110 Bibliography Citation Card */}
-      <Card className="border border-border bg-surface">
-        <CardHeader className="pb-2">
-          <span className="text-label">ACADEMIC CITATION</span>
-          <CardTitle className="text-sm font-semibold mt-0.5">Cite This Profile</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2.5 pt-0">
-          <div className="rounded-md bg-surface-muted p-2.5 text-[11px] font-mono text-muted-foreground leading-relaxed border border-border/60 break-words select-all">
-            {citationText}
-          </div>
-          <button
-            onClick={copyCitation}
-            type="button"
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-border bg-surface py-1.5 text-xs font-medium text-foreground hover:bg-surface-muted transition-colors"
-          >
-            {copied ? (
-              <>
-                <Check className="h-3.5 w-3.5 text-emerald-600" />
-                <span className="text-emerald-600 font-semibold">Citation Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="h-3.5 w-3.5 text-muted-foreground" />
-                <span>Copy APA Bibliography Citation</span>
-              </>
-            )}
-          </button>
-        </CardContent>
-      </Card>
+      <AtlasParametersCard wetland={wetland} />
+      <ConservationStatusCard wetland={wetland} />
+      <CitationCard wetland={wetland} />
     </aside>
   );
 }

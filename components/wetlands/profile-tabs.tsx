@@ -8,7 +8,12 @@ import { ProfileImportance } from "@/components/wetlands/profile-importance";
 import { ProfileWildlife } from "@/components/wetlands/profile-wildlife";
 import { ProfileThreats } from "@/components/wetlands/profile-threats";
 import { ProfileSources } from "@/components/wetlands/profile-sources";
-import { ProfileSidebar } from "@/components/wetlands/profile-sidebar";
+import {
+  ProfileSidebar,
+  AtlasParametersCard,
+  ConservationStatusCard,
+  CitationCard,
+} from "@/components/wetlands/profile-sidebar";
 import { Separator } from "@/components/ui/separator";
 import {
   BookOpen,
@@ -27,7 +32,7 @@ interface ProfileTabsProps {
 export type TabKey = "overview" | "values" | "wildlife" | "threats" | "sources" | "all";
 
 export function ProfileTabs({ wetland }: ProfileTabsProps) {
-  const [activeTab, setActiveTab] = React.useState<TabKey>("overview");
+  const [activeTab, setActiveTab] = React.useState<TabKey>("all");
   const tabContainerRef = React.useRef<HTMLDivElement>(null);
 
   const handleTabChange = (tab: TabKey) => {
@@ -95,34 +100,59 @@ export function ProfileTabs({ wetland }: ProfileTabsProps) {
       {/* Focused, Minimal Tab Content Panels */}
       <div className="pt-2 animate-in fade-in-50 duration-200">
         {activeTab === "overview" && (
-          <div className="space-y-8 max-w-4xl">
-            <ProfileAbout wetland={wetland} />
-            <Separator />
-            <ProfileQuickFacts wetland={wetland} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="lg:col-span-8 space-y-8">
+              <ProfileAbout wetland={wetland} />
+              <Separator />
+              <ProfileQuickFacts wetland={wetland} />
+            </div>
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
+              <AtlasParametersCard wetland={wetland} />
+            </div>
           </div>
         )}
 
         {activeTab === "values" && (
-          <div className="max-w-4xl">
-            <ProfileImportance wetland={wetland} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="lg:col-span-8">
+              <ProfileImportance wetland={wetland} />
+            </div>
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
+              <AtlasParametersCard wetland={wetland} />
+            </div>
           </div>
         )}
 
         {activeTab === "wildlife" && (
-          <div className="max-w-4xl">
-            <ProfileWildlife wetland={wetland} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="lg:col-span-8">
+              <ProfileWildlife wetland={wetland} />
+            </div>
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
+              <ConservationStatusCard wetland={wetland} />
+            </div>
           </div>
         )}
 
         {activeTab === "threats" && (
-          <div className="max-w-4xl space-y-6">
-            <ProfileThreats wetland={wetland} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="lg:col-span-8 space-y-6">
+              <ProfileThreats wetland={wetland} />
+            </div>
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
+              <ConservationStatusCard wetland={wetland} />
+            </div>
           </div>
         )}
 
         {activeTab === "sources" && (
-          <div className="max-w-4xl space-y-6">
-            <ProfileSources wetland={wetland} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="lg:col-span-8 space-y-6">
+              <ProfileSources wetland={wetland} />
+            </div>
+            <div className="lg:col-span-4 sticky top-28 space-y-6">
+              <CitationCard wetland={wetland} />
+            </div>
           </div>
         )}
 
