@@ -13,7 +13,9 @@ import { Badge } from "@/components/ui/badge";
 import {
   Compass,
   Search,
-  Filter,
+  MapPin,
+  ChevronDown,
+  Check,
   RotateCcw,
   Globe,
   Map as MapIcon,
@@ -44,8 +46,35 @@ export function MapView() {
   const [viewMode, setViewMode] = React.useState<MapViewMode>("satellite");
   const [fitBoundsTrigger, setFitBoundsTrigger] = React.useState(0);
 
+  // Dropdown open states
+  const [isStateDropdownOpen, setIsStateDropdownOpen] = React.useState(false);
+  const [isViewModeDropdownOpen, setIsViewModeDropdownOpen] = React.useState(false);
+
+  const stateDropdownRef = React.useRef<HTMLDivElement>(null);
+  const viewModeDropdownRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Click-outside listener for both dropdowns
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        stateDropdownRef.current &&
+        !stateDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsStateDropdownOpen(false);
+      }
+      if (
+        viewModeDropdownRef.current &&
+        !viewModeDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsViewModeDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Pre-select wetland if locate param is present
@@ -89,125 +118,216 @@ export function MapView() {
 
   return (
     <div className="flex flex-col space-y-4 w-full">
-      {/* 1. Header Toolbar & Geographic Controls */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-surface p-3 sm:p-4 rounded-xl border border-border shadow-xs">
-        {/* Left: Search input */}
-        <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-          <Input
-            type="search"
-            placeholder="Search wetlands, states, biomes..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 pr-8 h-9 text-xs sm:text-sm bg-surface-muted/60"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-0.5"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-          )}
-        </div>
-
-        {/* Center: State filter quick pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1">
-          <Filter className="h-3.5 w-3.5 text-muted-foreground shrink-0 ml-1" />
-          {uniqueStates.map((state) => {
-            const isSelected = selectedState === state;
-            return (
+      {/* 1. Pro Header Toolbar & Geographic Controls */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-surface p-3 sm:p-3.5 rounded-xl border border-border shadow-xs">
+        {/* Left Cluster: Comfortable Search Input + State Dropdown */}
+        <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 flex-1 min-w-0">
+          {/* Search input with fixed, comfortable width */}
+          <div className="relative w-full sm:w-72 lg:w-80 shrink-0">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+            <Input
+              type="search"
+              placeholder="Search wetlands, biomes..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 pr-8 h-9 text-xs sm:text-sm bg-surface-muted/60 focus:bg-surface w-full"
+            />
+            {searchQuery && (
               <button
-                key={state}
-                onClick={() => {
-                  setSelectedState(state);
-                  handleResetView();
-                }}
-                className={cn(
-                  "px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border cursor-pointer select-none",
-                  isSelected
-                    ? "bg-primary text-primary-foreground border-primary font-semibold shadow-xs"
-                    : "bg-surface-muted text-muted-foreground border-border hover:text-foreground hover:bg-muted"
-                )}
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-0.5 cursor-pointer"
+                title="Clear search"
               >
-                {state}
+                <X className="h-3.5 w-3.5" />
               </button>
-            );
-          })}
+            )}
+          </div>
+
+          {/* Scalable State Filter Dropdown */}
+          <div ref={stateDropdownRef} className="relative">
+            <button
+              onClick={() => setIsStateDropdownOpen((prev) => !prev)}
+              className={cn(
+                "inline-flex items-center gap-2 h-9 px-3 rounded-lg border text-xs font-medium transition-colors cursor-pointer select-none",
+                selectedState !== "All"
+                  ? "bg-primary text-primary-foreground border-primary font-semibold shadow-xs"
+                  : "bg-surface-muted/60 text-foreground border-border hover:bg-surface-muted"
+              )}
+              title="Filter by Indian State"
+            >
+              <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="truncate max-w-[130px]">
+                {selectedState === "All" ? "All States" : selectedState}
+              </span>
+              <ChevronDown
+                className={cn(
+                  "h-3.5 w-3.5 transition-transform opacity-70",
+                  isStateDropdownOpen && "rotate-180"
+                )}
+              />
+            </button>
+
+            {isStateDropdownOpen && (
+              <div className="absolute left-0 top-full mt-1.5 w-56 max-h-64 overflow-y-auto rounded-lg bg-surface border border-border shadow-xl p-1 z-40 space-y-0.5 animate-in fade-in-50 zoom-in-95 duration-100">
+                <div className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground border-b border-border/60 mb-1">
+                  Filter by State / UT
+                </div>
+                {uniqueStates.map((state) => {
+                  const isSelected = selectedState === state;
+                  const count =
+                    state === "All"
+                      ? allWetlands.length
+                      : allWetlands.filter((w) => w.state === state).length;
+                  return (
+                    <button
+                      key={state}
+                      onClick={() => {
+                        setSelectedState(state);
+                        setIsStateDropdownOpen(false);
+                        handleResetView();
+                      }}
+                      className={cn(
+                        "flex items-center justify-between w-full px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer text-left",
+                        isSelected
+                          ? "bg-primary/10 text-primary font-bold"
+                          : "text-foreground hover:bg-surface-muted"
+                      )}
+                    >
+                      <span className="truncate">{state}</span>
+                      <span className="font-mono text-[10px] text-muted-foreground bg-surface-muted px-1.5 py-0.5 rounded-xs border border-border/60">
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Right: View Mode Switcher (Satellite, Terrain, Dark, Light) & Reset Controls */}
-        <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 border-t lg:border-t-0 pt-2 lg:pt-0 border-border/60">
-          {/* Layer View Mode Segmented Controls */}
-          <div className="flex items-center rounded-lg border border-border bg-surface-muted/70 p-0.5 text-xs font-medium">
+        {/* Right Cluster: Map View Mode Dropdown + Fit All + Plotted Counter */}
+        <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-border/60">
+          {/* Map View Mode Dropdown */}
+          <div ref={viewModeDropdownRef} className="relative">
             <button
-              onClick={() => setViewMode("satellite")}
-              className={cn(
-                "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all cursor-pointer select-none",
-                viewMode === "satellite"
-                  ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              title="Satellite Aerial Imagery"
+              onClick={() => setIsViewModeDropdownOpen((prev) => !prev)}
+              className="inline-flex items-center gap-2 h-9 px-3 rounded-lg border border-border bg-surface-muted/60 hover:bg-surface-muted text-xs font-semibold text-foreground transition-colors cursor-pointer select-none"
+              title="Change Map View Mode"
             >
-              <Globe className="h-3.5 w-3.5" />
-              <span>Satellite</span>
+              {viewMode === "satellite" && <Globe className="h-3.5 w-3.5 text-primary" />}
+              {viewMode === "terrain" && <MapIcon className="h-3.5 w-3.5 text-primary" />}
+              {viewMode === "dark" && <Moon className="h-3.5 w-3.5 text-primary" />}
+              {viewMode === "light" && <Sun className="h-3.5 w-3.5 text-primary" />}
+              <span className="capitalize">{viewMode} View</span>
+              <ChevronDown
+                className={cn(
+                  "h-3.5 w-3.5 transition-transform opacity-70",
+                  isViewModeDropdownOpen && "rotate-180"
+                )}
+              />
             </button>
 
-            <button
-              onClick={() => setViewMode("terrain")}
-              className={cn(
-                "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all cursor-pointer select-none",
-                viewMode === "terrain"
-                  ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              title="Topographic Relief & Contours"
-            >
-              <MapIcon className="h-3.5 w-3.5" />
-              <span>Terrain</span>
-            </button>
+            {isViewModeDropdownOpen && (
+              <div className="absolute right-0 top-full mt-1.5 w-48 rounded-lg bg-surface border border-border shadow-xl p-1.5 z-40 space-y-1 animate-in fade-in-50 zoom-in-95 duration-100">
+                <div className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground border-b border-border/60 mb-1">
+                  Basemap View Mode
+                </div>
 
-            <button
-              onClick={() => setViewMode("dark")}
-              className={cn(
-                "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all cursor-pointer select-none",
-                viewMode === "dark"
-                  ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              title="Dark Atlas Canvas"
-            >
-              <Moon className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Dark</span>
-            </button>
+                <button
+                  onClick={() => {
+                    setViewMode("satellite");
+                    setIsViewModeDropdownOpen(false);
+                  }}
+                  className={cn(
+                    "flex items-center justify-between w-full px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer text-left",
+                    viewMode === "satellite"
+                      ? "bg-primary/10 text-primary font-bold"
+                      : "text-foreground hover:bg-surface-muted"
+                  )}
+                >
+                  <span className="flex items-center gap-2">
+                    <Globe className="h-3.5 w-3.5 text-primary" />
+                    <span>Satellite (Default)</span>
+                  </span>
+                  {viewMode === "satellite" && <Check className="h-3.5 w-3.5 text-primary" />}
+                </button>
 
-            <button
-              onClick={() => setViewMode("light")}
-              className={cn(
-                "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all cursor-pointer select-none",
-                viewMode === "light"
-                  ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-              title="Light Atlas Canvas"
-            >
-              <Sun className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">Light</span>
-            </button>
+                <button
+                  onClick={() => {
+                    setViewMode("terrain");
+                    setIsViewModeDropdownOpen(false);
+                  }}
+                  className={cn(
+                    "flex items-center justify-between w-full px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer text-left",
+                    viewMode === "terrain"
+                      ? "bg-primary/10 text-primary font-bold"
+                      : "text-foreground hover:bg-surface-muted"
+                  )}
+                >
+                  <span className="flex items-center gap-2">
+                    <MapIcon className="h-3.5 w-3.5 text-primary" />
+                    <span>Topographic Relief</span>
+                  </span>
+                  {viewMode === "terrain" && <Check className="h-3.5 w-3.5 text-primary" />}
+                </button>
+
+                <button
+                  onClick={() => {
+                    setViewMode("dark");
+                    setIsViewModeDropdownOpen(false);
+                  }}
+                  className={cn(
+                    "flex items-center justify-between w-full px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer text-left",
+                    viewMode === "dark"
+                      ? "bg-primary/10 text-primary font-bold"
+                      : "text-foreground hover:bg-surface-muted"
+                  )}
+                >
+                  <span className="flex items-center gap-2">
+                    <Moon className="h-3.5 w-3.5 text-primary" />
+                    <span>Dark Canvas</span>
+                  </span>
+                  {viewMode === "dark" && <Check className="h-3.5 w-3.5 text-primary" />}
+                </button>
+
+                <button
+                  onClick={() => {
+                    setViewMode("light");
+                    setIsViewModeDropdownOpen(false);
+                  }}
+                  className={cn(
+                    "flex items-center justify-between w-full px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer text-left",
+                    viewMode === "light"
+                      ? "bg-primary/10 text-primary font-bold"
+                      : "text-foreground hover:bg-surface-muted"
+                  )}
+                >
+                  <span className="flex items-center gap-2">
+                    <Sun className="h-3.5 w-3.5 text-primary" />
+                    <span>Light Canvas</span>
+                  </span>
+                  {viewMode === "light" && <Check className="h-3.5 w-3.5 text-primary" />}
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Reset Extent Button */}
           <button
             onClick={handleResetView}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium bg-surface-muted hover:bg-muted text-foreground border border-border transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium bg-surface-muted/60 hover:bg-surface-muted text-foreground border border-border transition-colors cursor-pointer select-none"
             title="Reset map view to encompass all wetlands"
           >
             <RotateCcw className="h-3.5 w-3.5 text-primary" />
             <span className="hidden sm:inline">Fit All</span>
           </button>
 
-          <Badge variant="outline" size="sm" className="font-mono text-[11px] whitespace-nowrap">
+          {/* Plotted Count Badge */}
+          <Badge
+            variant="outline"
+            size="sm"
+            className="font-mono text-[11px] h-9 px-2.5 flex items-center whitespace-nowrap"
+          >
             {filteredWetlands.length} of {allWetlands.length} Plotted
           </Badge>
         </div>
