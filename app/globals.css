@@ -199,3 +199,25 @@
   animation: marker-pulse 2s infinite ease-in-out;
 }
 
+/* Custom Floating Hover Microcard for Wetland Pins */
+.leaflet-tooltip.wetland-hover-microcard {
+  background-color: hsl(var(--surface) / 0.98) !important;
+  backdrop-filter: blur(8px);
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.15) !important;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.leaflet-tooltip-top.wetland-hover-microcard:before {
+  border-top-color: hsl(var(--border)) !important;
+}
+
+.leaflet-tooltip-bottom.wetland-hover-microcard:before {
+  border-bottom-color: hsl(var(--border)) !important;
+}
+
+
