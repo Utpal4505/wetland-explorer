@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Compass, MapPin, Layers, Sparkles, ShieldAlert } from "lucide-react";
+import { ArrowRight, Compass, MapPin, Layers, Sparkles, ShieldAlert, Feather } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -46,6 +46,12 @@ export default function HomePage() {
               <Link href="/map" className="gap-2">
                 <Compass className="h-4 w-4 text-muted-foreground" />
                 <span>Geographic Map</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="default">
+              <Link href="/wildlife" className="gap-2">
+                <Feather className="h-4 w-4 text-muted-foreground" />
+                <span>Wildlife Explorer</span>
               </Link>
             </Button>
             <Button asChild variant="outline" size="default">

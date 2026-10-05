@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { Wetland, IucnStatusCode } from "@/types/wetland";
 import { getWetlandWildlife } from "@/lib/data/wetlands";
+import { getSpeciesForWetland, matchSpeciesNameToSlug } from "@/lib/data/species";
 import { Card } from "@/components/ui/card";
-import { Feather, Footprints, Fish, ShieldAlert, Sparkles } from "lucide-react";
+import { Feather, Footprints, Fish, ShieldAlert, Sparkles, ArrowRight } from "lucide-react";
 
 interface ProfileWildlifeProps {
   wetland: Wetland;
@@ -74,9 +76,11 @@ function getIucnBadge(code: IucnStatusCode) {
 
 export function ProfileWildlife({ wetland }: ProfileWildlifeProps) {
   const speciesList = getWetlandWildlife(wetland);
+  const connectedSpecies = getSpeciesForWetland(wetland.id);
 
   return (
-    <section id="wildlife" className="scroll-mt-28 space-y-4">
+    <section id="wildlife" className="scroll-mt-28 space-y-5">
+      {/* Header */}
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <Feather className="h-4 w-4" />
@@ -93,44 +97,103 @@ export function ProfileWildlife({ wetland }: ProfileWildlifeProps) {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-        {speciesList.map((species) => (
-          <Card
-            key={species.commonName}
-            className="p-4 border border-border bg-surface hover:border-primary/50 transition-all shadow-xs flex flex-col justify-between space-y-3"
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent text-accent-foreground border border-accent-foreground/15">
-                  {getTaxaIcon(species.taxa)}
+      {/* Connected Wildlife Explorer Banner */}
+      {connectedSpecies.length > 0 && (
+        <div className="rounded-xl border border-border/80 bg-surface/70 p-4 space-y-2.5 shadow-xs">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 font-semibold">
+              <Feather className="h-3.5 w-3.5 text-primary" />
+              <span>Explore in Wildlife Explorer</span>
+            </span>
+            <Link
+              href="/wildlife"
+              className="text-xs font-medium text-primary hover:underline inline-flex items-center gap-1"
+            >
+              <span>All Species Profiles</span>
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-0.5">
+            {connectedSpecies.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/wildlife/${s.slug}`}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-surface hover:bg-surface-muted border border-border text-foreground transition-colors group cursor-pointer shadow-2xs"
+              >
+                <span className="text-primary group-hover:scale-110 transition-transform">
+                  {getTaxaIcon(s.taxa)}
                 </span>
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground leading-tight">
-                    {species.commonName}
-                  </h3>
-                  {species.scientificName && (
-                    <div className="text-[11px] text-muted-foreground italic font-serif">
-                      {species.scientificName}
-                    </div>
-                  )}
+                <span>{s.name}</span>
+                <span className="text-[11px] font-mono text-muted-foreground">
+                  ({s.wetlands.length} {s.wetlands.length === 1 ? "site" : "sites"})
+                </span>
+                <ArrowRight className="h-3 w-3 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Grid of Species */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+        {speciesList.map((species) => {
+          const speciesSlug = matchSpeciesNameToSlug(species.commonName);
+
+          return (
+            <Card
+              key={species.commonName}
+              className="p-4 border border-border bg-surface hover:border-primary/50 transition-all shadow-xs flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent text-accent-foreground border border-accent-foreground/15">
+                    {getTaxaIcon(species.taxa)}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground leading-tight">
+                      {species.commonName}
+                    </h3>
+                    {species.scientificName && (
+                      <div className="text-[11px] text-muted-foreground italic font-serif">
+                        {species.scientificName}
+                      </div>
+                    )}
+                  </div>
                 </div>
+
+                <span className="text-[11px] font-mono text-muted-foreground bg-surface-muted px-2 py-0.5 rounded-xs border border-border/80 shrink-0">
+                  {species.taxa}
+                </span>
               </div>
 
-              <span className="text-[11px] font-mono text-muted-foreground bg-surface-muted px-2 py-0.5 rounded-xs border border-border/80 shrink-0">
-                {species.taxa}
-              </span>
-            </div>
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border/60">
+                {getIucnBadge(species.iucnStatus)}
 
-            <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border/60">
-              {getIucnBadge(species.iucnStatus)}
+                <span className="text-[11px] font-medium text-foreground/80 flex items-center gap-1">
+                  <Sparkles className="h-3 w-3 text-primary" />
+                  <span>{species.seasonality}</span>
+                </span>
+              </div>
 
-              <span className="text-[11px] font-medium text-foreground/80 flex items-center gap-1">
-                <Sparkles className="h-3 w-3 text-primary" />
-                <span>{species.seasonality}</span>
-              </span>
-            </div>
-          </Card>
-        ))}
+              {/* Direct Link to Species Profile */}
+              {speciesSlug && (
+                <div className="pt-2 border-t border-border/50 flex items-center justify-between text-xs">
+                  <span className="text-[11px] font-mono text-muted-foreground">
+                    Documented Species Dossier
+                  </span>
+                  <Link
+                    href={`/wildlife/${speciesSlug}`}
+                    className="inline-flex items-center gap-1 font-medium text-primary hover:underline group/link"
+                  >
+                    <span>Explore species profile</span>
+                    <ArrowRight className="h-3 w-3 group-hover/link:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              )}
+            </Card>
+          );
+        })}
       </div>
     </section>
   );
