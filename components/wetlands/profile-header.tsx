@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, Compass } from "lucide-react";
 import { Wetland } from "@/types/wetland";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ShareDossierButton } from "@/components/ui/share-dossier-button";
 
 interface ProfileHeaderProps {
   wetland: Wetland;
@@ -18,7 +19,7 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
 
   return (
     <header className="space-y-4">
-      {/* Top Back Action & Navigation Breadcrumbs */}
+      {/* Top Back Action, Navigation Breadcrumbs & Share */}
       <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
         <Button
           asChild
@@ -32,15 +33,23 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
           </Link>
         </Button>
 
-        <nav className="flex items-center gap-1.5 font-mono text-[11px]" aria-label="Breadcrumb">
-          <Link href="/explore" className="hover:text-foreground hover:underline">
-            Atlas
-          </Link>
-          <span>/</span>
-          <span className="text-foreground/80">{wetland.state}</span>
-          <span>/</span>
-          <span className="text-primary font-medium">{wetland.name}</span>
-        </nav>
+        <div className="flex items-center gap-3">
+          <nav className="hidden sm:flex items-center gap-1.5 font-mono text-[11px]" aria-label="Breadcrumb">
+            <Link href="/explore" className="hover:text-foreground hover:underline">
+              Atlas
+            </Link>
+            <span>/</span>
+            <span className="text-foreground/80">{wetland.state}</span>
+            <span>/</span>
+            <span className="text-primary font-medium">{wetland.name}</span>
+          </nav>
+
+          <ShareDossierButton
+            wetlandName={wetland.name}
+            wetlandState={wetland.state}
+            ramsarSiteNo={wetland.ramsarSiteNo}
+          />
+        </div>
       </div>
 
       {/* Main Title & Classification Header */}
