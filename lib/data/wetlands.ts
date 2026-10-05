@@ -9,21 +9,22 @@ export const WETLANDS_DATA: Wetland[] = [
     coordinates: { lat: 19.7183, lng: 85.3211 },
     designation: "Ramsar Site",
     designationYear: 1981,
+    ramsarSiteNo: 229,
     areaKm2: 1165,
     elevationMeters: 2,
-    biogeographicZone: "East Coast Biogeographical Zone",
+    biogeographicZone: "East Coast Biogeographical Zone (8B)",
     category: "Brackish Lagoon",
     shortDescription:
-      "Asia's largest brackish water lagoon, spanning three coastal districts and providing crucial sanctuary for the rare, endangered Irrawaddy dolphin population.",
+      "Asia's largest brackish water coastal lagoon, spanning three districts of Odisha and sustaining the flagship endangered Irrawaddy dolphin population.",
     overview:
-      "Chilika Lake is a vast shallow brackish water lagoon situated along the east coast of Odisha, separated from the Bay of Bengal by a 60-kilometer-long narrow barrier spit. Fed by more than 52 rivers and streams including the Daya and Bhargabi rivers, it experiences a dynamic seasonal shift between freshwater during the monsoon and marine salinity during dry periods.",
+      "Chilika Lake is a vast, shallow estuarine lagoon situated along the Bay of Bengal coast in Odisha. Separated from the sea by a 60-kilometer-long dynamic barrier spit, it is fed by over 52 rivers and streams, including distributaries of the Mahanadi river system. It exhibits an estuarine salinity gradient fluctuating seasonally from near-freshwater during monsoon influx to marine salinity during pre-monsoon dry months.",
     importance: {
       ecological:
-        "Acts as a major coastal sediment sink and natural nutrient recycling zone, mitigating floodwaters from the Mahanadi river basin before discharging into the Bay of Bengal.",
+        "Acts as a major coastal sediment sink and natural nutrient recycling basin, moderating monsoon floodwaters from the Mahanadi delta before discharging into the Bay of Bengal.",
       wildlife:
-        "India's largest wintering ground for migratory waterfowl on the Central Asian Flyway, hosting over a million birds annually along with the flagship Irrawaddy dolphin (Orcaella brevirostris).",
+        "India's largest wintering ground for migratory waterfowl on the Central Asian Flyway, hosting over a million birds annually along with an isolated breeding population of Irrawaddy dolphins (Orcaella brevirostris).",
       local:
-        "Directly sustains the livelihoods of over 150,000 traditional fisherfolk across 132 coastal villages and supports eco-tourism centered around Satapada.",
+        "Directly sustains the traditional fishing livelihoods of over 150,000 fisherfolk across 132 coastal villages and supports eco-tourism centered around Satapada and Mangalajodi.",
     },
     imageUrl:
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
@@ -39,41 +40,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Siltation & Canal Choking",
         description:
-          "Upstream catchment deforestation leads to heavy sediment deposition, reducing lagoon depth and shifting mouth opening dynamics.",
+          "Deforestation in the catchment of feeder rivers leads to heavy sediment deposition, reducing lagoon depth and choking the Magarmukh lead channel.",
         severity: "High",
       },
       {
         title: "Intensive Aquaculture Ponds",
         description:
-          "Illegal prawn gherries (encroachments) alter localized water circulation and degrade natural seagrass beds.",
+          "Illegal prawn gherries (enclosures) alter natural hydrodynamic circulation, fragment mudflats, and degrade indigenous seagrass beds.",
         severity: "Moderate",
       },
       {
         title: "Agricultural Runoff",
         description:
-          "Chemical fertilizers from neighboring delta farmlands trigger localized algal blooms and eutrophication in shallow bays.",
+          "Fertilizer and pesticide leaching from deltaic farmlands triggers localized algal blooms and eutrophication in shallow northern bays.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Information Sheet on Ramsar Wetlands (RIS) — Chilika Lake",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Chilika Lake (Site No. 229)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/229",
+        accessedAt: "October 2026",
       },
       {
         title: "Ecological Restoration and Hydrological Dynamics of Chilika Lagoon",
         organization: "Chilika Development Authority (CDA) & MoEFCC",
         year: 2018,
         citationType: "Government Gazette",
+        url: "https://www.chilika.com",
+        accessedAt: "October 2026",
       },
       {
-        title: "Status and Distribution of Irrawaddy Dolphins in Chilika",
+        title: "Status and Distribution of Irrawaddy Dolphins in Chilika Lagoon",
         organization: "Wildlife Institute of India (WII)",
         year: 2021,
         citationType: "Research Paper",
+        url: "https://wii.gov.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "Moderate",
@@ -86,25 +92,26 @@ export const WETLANDS_DATA: Wetland[] = [
     coordinates: { lat: 21.9497, lng: 88.8999 },
     designation: "Ramsar Site",
     designationYear: 2019,
+    ramsarSiteNo: 2370,
     areaKm2: 4230,
     elevationMeters: 3,
-    biogeographicZone: "Ganga-Brahmaputra Deltaic Estuary",
+    biogeographicZone: "Ganga-Brahmaputra Deltaic Estuary (8B/7B)",
     category: "Mangrove Swamps",
     shortDescription:
-      "The world's largest contiguous tidal halophytic mangrove forest, spanning the delta of the Ganga, Brahmaputra, and Meghna rivers.",
+      "The Indian expanse of the world's largest contiguous tidal mangrove forest, spanning the deltaic seaward fringes of the Ganga, Brahmaputra, and Meghna rivers.",
     overview:
-      "Covering the low-lying coastal plains of southern West Bengal, the Sundarbans Wetland represents an intricate labyrinth of tidal waterways, mudflats, and halophytic mangrove islands. Shaped by twice-daily tidal inundations and extreme salinity gradients, it forms a vital natural defense barrier protecting the Kolkata metropolitan hinterland.",
+      "Covering the low-lying coastal plains of southern West Bengal, Sundarbans Wetland encompasses an intricate network of tidal waterways, mudflats, and halophytic mangrove islands. Inundated semi-diurnally by ocean tides, it forms a monumental biological buffer safeguarding millions of inland residents across the Kolkata metropolitan hinterland.",
     importance: {
       ecological:
-        "Functions as a monumental bio-shield dampening the fury of tropical cyclones from the Bay of Bengal while storing immense quantities of blue carbon in dense peat soils.",
+        "Functions as a paramount bio-shield absorbing cyclonic surges from the Bay of Bengal while storing vast volumes of coastal blue carbon in deep peat and organic sediment soils.",
       wildlife:
-        "The sole mangrove habitat in the world colonized by the Royal Bengal Tiger (Panthera tigris tigris), co-existing with estuarine crocodiles and critically endangered northern river terrapins.",
+        "Global stronghold of the tiger (Panthera tigris tigris) uniquely adapted to swimming saline waterways, as well as critically endangered northern river terrapins and estuarine crocodiles.",
       local:
-        "Provides non-timber forest produce including wild mangrove honey, nypa palm thatch, and estuarine crab fisheries vital to islanders.",
+        "Provides seasonal livelihood security through non-timber forest produce, artisanal honey collection, and sustainable crab harvesting for fringing forest communities.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Dense tidal mangrove creeks and aerial roots in the Sundarbans Biosphere.",
+      "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Dense tidal mangrove creeks and muddy banks of the Sundarbans delta.",
     keyWildlife: [
       "Royal Bengal Tiger",
       "Estuarine Crocodile",
@@ -116,72 +123,78 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Sea-Level Rise & Coastal Erosion",
         description:
-          "Accelerated marine encroachment submerges fringe islands and salinizes freshwater aquifers across the delta.",
-        severity: "Severe",
+          "Accelerated marine erosion and tidal subsidence submerge peripheral mudflats and breach protective earthen embankments on inhabited islands.",
+        severity: "Critical",
       },
       {
         title: "Reduced Freshwater Discharge",
         description:
-          "Upstream river diversions increase salinity in western channels, degrading sensitive sundari (Heritiera fomes) tree stands.",
-        severity: "High",
+          "Upstream hydrological diversions on the Ganga-Hooghly system increase dry-season salinity, stressing freshwater-loving mangrove species like Sundari (Heritiera fomes).",
+        severity: "Severe",
       },
       {
         title: "Frequent Severe Cyclones",
         description:
-          "Intensifying storm frequencies breach mud embankments and inundate inhabited islands with hypersaline waters.",
-        severity: "Severe",
+          "Successive high-intensity cyclonic storms (Amphan, Yaas, Remal) cause physical defoliation of mangrove canopy and catastrophic saline inundation of paddy soils.",
+        severity: "High",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Sundarban Wetland (Site No. 2370)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Sundarban Wetland (Site No. 2370)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2019,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/2370",
+        accessedAt: "October 2026",
       },
       {
-        title: "State of Art Report on Sundarban Biosphere Reserve",
-        organization: "Department of Environment, Govt of West Bengal",
-        year: 2020,
+        title: "Integrated Management Action Plan for Sundarban Biosphere Reserve",
+        organization: "West Bengal State Wetland Authority (WBSWA) & MoEFCC",
+        year: 2021,
         citationType: "Government Gazette",
+        url: "https://environment.wb.gov.in",
+        accessedAt: "October 2026",
       },
       {
-        title: "Vulnerability of Sundarbans Mangrove Ecosystem to Climate Change",
-        organization: "School of Oceanographic Studies, Jadavpur University",
-        year: 2022,
+        title: "Faunal Diversity of Sundarban Biosphere Reserve",
+        organization: "Zoological Survey of India (ZSI)",
+        year: 2020,
         citationType: "Research Paper",
+        url: "https://zsi.gov.in",
+        accessedAt: "October 2026",
       },
     ],
-    threatLevel: "High",
+    threatLevel: "Severe",
   },
   {
     id: "loktak-lake",
     name: "Loktak Lake",
     state: "Manipur",
     country: "India",
-    coordinates: { lat: 24.55, lng: 93.7833 },
+    coordinates: { lat: 24.55, lng: 93.8 },
     designation: "Ramsar Site",
     designationYear: 1990,
-    areaKm2: 287,
+    ramsarSiteNo: 463,
+    areaKm2: 266,
     elevationMeters: 768,
-    biogeographicZone: "Northeast Hills & Indo-Burma Hotspot",
+    biogeographicZone: "North-East Hills Biogeographical Zone (9B)",
     category: "Freshwater Lake",
     shortDescription:
-      "The largest natural freshwater lake in Northeast India, famous worldwide for its circular floating vegetative biomass islands known as 'phumdis'.",
+      "The largest natural freshwater lake in Northeast India, world-renowned for its heterogeneous floating vegetative biomass islands called phumdis.",
     overview:
-      "Loktak Lake occupies the central valley of Manipur and is renowned globally for its phumdis—heterogeneous masses of vegetation, organic debris, and soil in all stages of decomposition that float upon the water. The southern basin encompasses the Keibul Lamjao National Park, the only floating wildlife park in the world.",
+      "Loktak Lake occupies the lowest depression of the Central Manipur Valley, receiving runoff from over 30 streams and rivers including the Manipur and Nambul rivers. It is distinguished globally by its floating islands composed of decomposing vegetation, soil, and roots (phumdis), the largest contiguous expanse of which constitutes Keibul Lamjao National Park.",
     importance: {
       ecological:
-        "Plays an indispensable role in maintaining the hydrological regime of the Manipur River basin, buffering monsoon floods and moderating regional microclimates.",
+        "Regulates floodwaters across the Imphal Valley, acts as a primary freshwater retention reservoir, and generates microclimatic stability for the surrounding agrarian basin.",
       wildlife:
-        "The exclusive, last natural refuge of the critically endangered Sangai (Rucervus eldii eldii), Manipur's endemic dancing deer whose hooves are adapted to the spongy phumdi.",
+        "The sole natural refuge on Earth for the critically endangered Sangai brow-antlered deer (Rucervus eldii eldii), adapted exclusively to grazing on the buoyant phumdi turf.",
       local:
-        "Central to the cultural ethos and folklore of the Meitei community, providing freshwater fisheries, edible water plants (heikak), and hydroelectric generation.",
+        "Central to Manipur's cultural identity and economy, supporting traditional capture fisheries, edible water chestnut harvesting, and hydropower generation.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Circular floating phumdi formations dotting the calm surface of Loktak Lake.",
+      "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Circular floating phumdi rings on the tranquil surface of Loktak Lake.",
     keyWildlife: [
       "Sangai Brow-antlered Deer",
       "Indian Python",
@@ -193,41 +206,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Hydrological Stagnation from Ithai Barrage",
         description:
-          "Constant water retention prevents the seasonal grounding and nutrient replenishment of floating phumdis, causing them to thin out.",
+          "The downstream Ithai Barrage maintains permanently high water levels, preventing natural winter grounding of phumdis and starving their roots of nutrient regeneration.",
         severity: "Severe",
       },
       {
         title: "Urban Sewage & Eutrophication",
         description:
-          "Untreated municipal wastewater and agricultural fertilizers carried down the Nambul river lead to weed proliferation and oxygen depletion.",
+          "Untreated municipal wastewater and solid waste from Imphal town flow into the lake via the Nambul River, driving organic oxygen depletion.",
         severity: "High",
       },
       {
         title: "Shrinking Open Water Area",
         description:
-          "Proliferation of commercial fish farming rings (Athaphum) alters natural water flow and fragments bird staging zones.",
+          "Uncontrolled proliferation of aquaculture athaphums and catchment siltation chokes open water corridors and compromises boat navigation.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Montreux Record Registry Profile — Loktak Lake",
-        organization: "Ramsar Convention Secretariat",
-        year: 1993,
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Loktak Lake (Site No. 463)",
+        organization: "Ramsar Sites Information Service (RSIS)",
+        year: 1990,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/463",
+        accessedAt: "October 2026",
       },
       {
-        title: "Integrated Management Action Plan for Loktak and Associated Wetlands",
-        organization: "Loktak Development Authority (LDA) & Wetlands International South Asia",
-        year: 2011,
+        title: "Conservation and Integrated Management Plan for Loktak Lake",
+        organization: "Loktak Development Authority (LDA) Manipur",
+        year: 2020,
         citationType: "Government Gazette",
+        url: "https://lda.mn.gov.in",
+        accessedAt: "October 2026",
       },
       {
-        title: "Phumdi Ecology and Habitat Deterioration in Keibul Lamjao",
-        organization: "Forest Department of Manipur",
-        year: 2021,
+        title: "Ecological Status and Habitat Viability of Keibul Lamjao National Park",
+        organization: "Wildlife Institute of India (WII)",
+        year: 2022,
         citationType: "Research Paper",
+        url: "https://wii.gov.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "High",
@@ -237,28 +255,29 @@ export const WETLANDS_DATA: Wetland[] = [
     name: "Keoladeo National Park",
     state: "Rajasthan",
     country: "India",
-    coordinates: { lat: 27.16, lng: 77.52 },
+    coordinates: { lat: 27.1594, lng: 77.5231 },
     designation: "Ramsar Site",
     designationYear: 1981,
-    areaKm2: 29,
+    ramsarSiteNo: 230,
+    areaKm2: 28.73,
     elevationMeters: 174,
-    biogeographicZone: "Indo-Gangetic Semi-Arid Plains",
-    category: "Wetland Complex",
+    biogeographicZone: "Semi-Arid Biogeographical Zone (4B)",
+    category: "Freshwater Lake",
     shortDescription:
-      "A human-managed mosaic of grasslands, woodlands, and shallow freshwater swamps on the Indo-Gangetic Plain, hosting 370+ bird species.",
+      "A renowned UNESCO World Heritage wetland complex in Bharatpur, serving as a historic congregational haven for hundreds of wintering waterfowl species.",
     overview:
-      "Formerly known as Bharatpur Bird Sanctuary, Keoladeo is a man-engineered freshwater wetland system created more than 250 years ago by Maharaja Suraj Mal. Water is channeled via sluices into ten distinct dyked compartments, producing varying water depths that cater precisely to different guilds of waterfowl.",
+      "Formerly known as the Bharatpur Bird Sanctuary, Keoladeo National Park is a composite man-made and managed wetland system situated in the semi-arid plains of eastern Rajasthan. Created over 250 years ago by constructing earthen dykes (dykes and bunds) at the confluence of the Gambhir and Banganga rivers, it features mosaic marshes, savannah grasslands, and acacia woodlands.",
     importance: {
       ecological:
-        "Serves as an engineered biological oasis within an arid agricultural landscape, buffering local groundwater tables and trapping agricultural runoff.",
+        "Exemplifies artificial wetland engineering sustaining biodiversity, retaining monsoon rainwater, and recharging groundwater aquifers in a semi-arid biome.",
       wildlife:
-        "Historic wintering quarter of the central population of Siberian Cranes (Leucogeranus leucogeranus) and premier Asian heronry with thousands of nesting pairs annually.",
+        "Historic wintering station on the Central Asian Flyway hosting over 370 bird species, including massive breeding colonies of painted storks and the majestic resident Sarus crane.",
       local:
-        "World heritage eco-tourism destination providing direct livelihood to certified local cycle-rickshaw bird guides and local hospitality.",
+        "Premier international eco-tourism destination providing direct sustainable income for hundreds of licensed local cycle-rickshaw bird guides and naturalists.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Marshy woodlands and heronries in Keoladeo National Park during winter.",
+      "https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Marshy acacia woodlands and colonial nesting birds at Keoladeo National Park.",
     keyWildlife: [
       "Sarus Crane",
       "Painted Stork",
@@ -270,41 +289,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Water Scarcity & Intermittent Inflow",
         description:
-          "Diversion of water from Ajan Dam and upstream barrages during drought years leaves wetlands dry and disrupts breeding seasons.",
-        severity: "High",
+          "Upstream impoundments at the Panchana Dam and diversions on the Gambhir River restrict crucial seasonal water releases from the Ajan Bandh reservoir.",
+        severity: "Severe",
       },
       {
         title: "Invasive Vegetation",
         description:
-          "Proliferation of African catfish and choking species like Prosopis juliflora and Paspalum grass crowds out native wetland flora.",
-        severity: "Moderate",
+          "Proliferation of invasive mesquite (Prosopis juliflora) and African grass (Paspalum distichum) chokes aquatic feeding depressions.",
+        severity: "High",
       },
       {
         title: "Pesticide Drift",
         description:
-          "Intensive farming on the park periphery carries pesticide residues into drainage canals during monsoon surges.",
+          "Intensive chemical pesticide application on adjacent farmland causes chemical runoff into peripheral marshes during monsoon inflows.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Keoladeo National Park (Site No. 230)",
-        organization: "Ramsar Sites Information Service",
-        year: 1992,
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Keoladeo National Park (Site No. 230)",
+        organization: "Ramsar Sites Information Service (RSIS)",
+        year: 1990,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/230",
+        accessedAt: "October 2026",
       },
       {
-        title: "UNESCO World Heritage Conservation Status Report",
-        organization: "UNESCO World Heritage Centre",
-        year: 2019,
-        citationType: "Official Registry",
-      },
-      {
-        title: "Long-term Monitoring of Avian Dynamics at Bharatpur",
+        title: "Avifaunal Monitoring and Ecological Management Plan for Keoladeo",
         organization: "Bombay Natural History Society (BNHS)",
-        year: 2022,
+        year: 2019,
         citationType: "Research Paper",
+        url: "https://www.bnhs.org",
+        accessedAt: "October 2026",
+      },
+      {
+        title: "Management Plan for Keoladeo National Park World Heritage Site",
+        organization: "Rajasthan Forest Department & MoEFCC",
+        year: 2021,
+        citationType: "Government Gazette",
+        url: "https://forest.rajasthan.gov.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "Moderate",
@@ -314,28 +338,29 @@ export const WETLANDS_DATA: Wetland[] = [
     name: "Vembanad-Kol Wetland",
     state: "Kerala",
     country: "India",
-    coordinates: { lat: 9.6, lng: 76.45 },
+    coordinates: { lat: 9.61, lng: 76.42 },
     designation: "Ramsar Site",
     designationYear: 2002,
-    areaKm2: 1512,
+    ramsarSiteNo: 1214,
+    areaKm2: 1512.5,
     elevationMeters: 1,
-    biogeographicZone: "Malabar Coast & Western Ghats Estuary",
+    biogeographicZone: "West Coast Biogeographical Zone (10B)",
     category: "Brackish Lagoon",
     shortDescription:
-      "The longest lake in India and the hydrological heart of the Kerala backwaters, famous for its salt-water barrage and below-sea-level farming system.",
+      "India's longest estuarine lake system, spanning three coastal districts of Kerala and encompassing the below-sea-level agrarian polders of Kuttanad.",
     overview:
-      "Vembanad-Kol is the largest brackish water lagoon system on the west coast of India, stretching across Alappuzha, Kottayam, and Ernakulam districts. It encompasses the unique Kuttanad agricultural system, recognized by FAO as a Globally Important Agricultural Heritage System (GIAHS) where paddy cultivation occurs up to 2.5 meters below sea level.",
+      "Extending over 96 kilometers parallel to the Arabian Sea, Vembanad-Kol is an intricate coastal estuarine complex fed by 10 major rivers, including the Pamba, Periyar, and Meenachil. Separated into saline and freshwater compartments by the engineering of the Thanneermukkom barrage, it encompasses extensive mangrove fringes, lagoons, and flood-prone Kol paddy fields.",
     importance: {
       ecological:
-        "Acts as a gigantic retention basin regulating monsoon floods originating in the Western Ghats before waters enter the Arabian Sea through Kochi and Azheekode bars.",
+        "Acts as a gigantic natural drainage sink buffering central Kerala against tropical monsoon deluges and recharging shallow coastal freshwater aquifers.",
       wildlife:
-        "Crucial nursery ground for coastal marine fishes and estuarine prawns, hosting more than 20,000 migratory waterfowl during mid-winter counts.",
+        "Supports over 20,000 wintering waterbirds annually and serves as an indispensable nursery ground for estuarine fish, penaeid prawns, and benthic clams.",
       local:
-        "Core hub of Kerala's backwater tourism and houseboat industry, providing inland navigation, lime-shell mining, and clam fisheries.",
+        "Anchors Kerala's backwater tourism and sustains traditional Kuttanad Below-Sea-Level farming (recognized as a GIAHS heritage agricultural system by FAO).",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Serene palm-fringed channels of the Vembanad-Kol wetland system.",
+      "https://images.unsplash.com/photo-1618245318763-a15156d6b23c?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Scenic coconut-lined backwater canals and houseboats on Vembanad Lake.",
     keyWildlife: [
       "Indian Spot-billed Duck",
       "Malabar Grey Hornbill",
@@ -347,41 +372,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Thanneermukkom Saltwater Barrier Impact",
         description:
-          "The permanent closure of the salinity regulator prevents natural tidal flushing, causing severe water hyacinth weed clogging and pollution buildup.",
+          "The 1.4-kilometer saltwater barrage blocks seasonal tidal flushing, trapping agro-chemicals and triggering massive aquatic weed decay in the southern lake.",
         severity: "Severe",
       },
       {
         title: "Reclamation for Urban Infrastructure",
         description:
-          "Port expansions, tourism resorts, and urban reclamation have significantly constricted the active water spread area over the past four decades.",
+          "Unchecked encroachment and land reclamation for tourism resorts, real estate development, and road networks permanently shrinks water spread area.",
         severity: "High",
       },
       {
         title: "Domestic Sewage & Agro-Chemical Leaching",
         description:
-          "Heavy fertilizer applications in Kuttanad paddy fields drain directly into stagnant canals, causing recurrent fish mortality.",
+          "High pesticide and fertilizer drainage from intensive Kuttanad paddy fields combined with untreated houseboat sewage causes chronic organic pollution.",
         severity: "High",
       },
     ],
     sources: [
       {
-        title: "Information Sheet on Ramsar Wetlands — Vembanad-Kol Wetland (Site No. 1214)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Vembanad-Kol Wetland (Site No. 1214)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/1214",
+        accessedAt: "October 2026",
       },
       {
-        title: "Ecological Degradation and Conservation Strategy for Vembanad Lake",
-        organization: "Kerala State Council for Science, Technology and Environment (KSCSTE)",
-        year: 2017,
-        citationType: "Government Gazette",
-      },
-      {
-        title: "Below Sea Level Farming and Hydrology in Kuttanad",
-        organization: "M.S. Swaminathan Research Foundation (MSSRF)",
+        title: "Comprehensive Management Action Plan for Vembanad-Kol Wetland System",
+        organization: "Kerala State Wetland Authority (KSWA)",
         year: 2020,
+        citationType: "Government Gazette",
+        url: "https://kswa.kerala.gov.in",
+        accessedAt: "October 2026",
+      },
+      {
+        title: "Ecology and Fisheries Dynamics of the Vembanad Estuarine System",
+        organization: "Central Marine Fisheries Research Institute (CMFRI)",
+        year: 2021,
         citationType: "Research Paper",
+        url: "https://www.cmfri.org.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "High",
@@ -391,28 +421,29 @@ export const WETLANDS_DATA: Wetland[] = [
     name: "Harike Wetland",
     state: "Punjab",
     country: "India",
-    coordinates: { lat: 31.15, lng: 74.95 },
+    coordinates: { lat: 31.1542, lng: 74.9547 },
     designation: "Ramsar Site",
     designationYear: 1990,
+    ramsarSiteNo: 462,
     areaKm2: 41,
     elevationMeters: 210,
-    biogeographicZone: "Upper Gangetic / Indus Plains",
+    biogeographicZone: "Indo-Gangetic / Semi-Arid Plains (4A)",
     category: "Riverine Floodplain",
     shortDescription:
-      "A deep freshwater riverine wetland created at the confluence of the Beas and Sutlej rivers, serving as a vital winter stopover for migratory wildfowl.",
+      "A sprawling shallow reservoir at the confluence of the Beas and Sutlej rivers in Punjab, sheltering rare river dolphins and massive waterfowl flocks.",
     overview:
-      "Harike Wetland, also known locally as 'Hari-ke-Pattan', was formed in 1952 by the construction of a barrage across the confluence of the Sutlej and Beas rivers in Tarn Taran district. The resulting reservoir and surrounding reed marshes represent one of the most critical freshwater wetland complexes in northwestern India.",
+      "Formed in 1952 by the construction of the Harike Barrage across the confluence of the Sutlej and Beas rivers, Harike Wetland is the largest freshwater wetland in northern India. Covering portions of Tarn Taran, Ferozepur, and Kapurthala districts, it encompasses expansive open water bodies, marshy reed beds, and seasonally shifting silt islands.",
     importance: {
       ecological:
-        "Regulates flood discharge from Himalayan snowmelt and serves as a vital hydrological recharge zone for the Punjab-Rajasthan canal irrigation network.",
+        "Regulates trans-boundary river flows between the Sutlej and Beas, acts as an artificial sediment filter, and feeds the vital Indira Gandhi and Rajasthan feeder irrigation canals.",
       wildlife:
-        "One of the only two sites in India hosting a resident population of the critically endangered Indus River Dolphin (Platanista minor), alongside smooth-coated otters and wintering diving ducks.",
+        "Crucial trans-Himalayan flyway refuge hosting over 200,000 wintering migratory waterfowl and harbouring the only documented population of Indus river dolphins (Platanista minor) in India.",
       local:
-        "The headworks for the Indira Gandhi Canal, which conveys life-giving irrigation water across hundreds of kilometers into the Thar Desert of western Rajasthan.",
+        "Sustains regional agricultural irrigation across downstream southern Punjab and Rajasthan while supporting commercial inland fisheries.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Misty morning riverine marsh vegetation at the confluence of Beas and Sutlej, Harike.",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Serene morning mist over the river confluence channels at Harike Wetland.",
     keyWildlife: [
       "Indus River Dolphin",
       "Smooth-coated Otter",
@@ -424,41 +455,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Industrial & Municipal Effluent Inflow",
         description:
-          "Untreated industrial effluents discharged via the East Bein and Buddha Nullah channels introduce heavy metals and pathogens into the reservoir.",
-        severity: "Severe",
+          "Untreated industrial and domestic effluents discharged via the East Bein and Buddha Nullah channels introduce heavy metals and synthetic pollutants.",
+        severity: "High",
       },
       {
         title: "Dense Infestation of Water Hyacinth",
         description:
-          "Eichhornia crassipes carpets vast swathes of open water, depleting dissolved oxygen and impeding aquatic navigation.",
+          "Invasive water hyacinth (Eichhornia crassipes) carpets vast expanses of open water, depleting dissolved oxygen and impeding boat navigation.",
         severity: "High",
       },
       {
         title: "Encroachment of Silt Islands",
         description:
-          "Accumulating silt islands are frequently occupied for unauthorized cultivation and grazing during seasonal drawdowns.",
+          "Emergent silt islands inside the reservoir are illegally occupied for unauthorized cultivation and cattle grazing during seasonal low-water drawdowns.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Harike Lake (Site No. 462)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Harike Lake (Site No. 462)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 1990,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/462",
+        accessedAt: "October 2026",
       },
       {
-        title: "Survey of Indus River Dolphin in Harike Wildlife Sanctuary",
+        title: "Distribution and Conservation Assessment of Indus River Dolphin in Harike",
         organization: "WWF-India & Department of Forests, Punjab",
         year: 2018,
         citationType: "Research Paper",
+        url: "https://www.wwfindia.org",
+        accessedAt: "October 2026",
       },
       {
-        title: "Comprehensive Management Plan for Harike Wetland",
-        organization: "Punjab State Council for Science & Technology",
+        title: "Comprehensive Management Action Plan for Harike Wetland",
+        organization: "Punjab State Council for Science & Technology (PSCST)",
         year: 2021,
         citationType: "Government Gazette",
+        url: "https://pscst.punjab.gov.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "Moderate",
@@ -468,28 +504,29 @@ export const WETLANDS_DATA: Wetland[] = [
     name: "Tso Moriri",
     state: "Ladakh",
     country: "India",
-    coordinates: { lat: 32.9, lng: 78.31 },
+    coordinates: { lat: 32.9075, lng: 78.3089 },
     designation: "Ramsar Site",
     designationYear: 2002,
+    ramsarSiteNo: 1213,
     areaKm2: 120,
-    elevationMeters: 4522,
-    biogeographicZone: "Trans-Himalayan Tibetan Plateau",
+    elevationMeters: 4595,
+    biogeographicZone: "Trans-Himalaya Tibetan Plateau (1B)",
     category: "High-Altitude Lake",
     shortDescription:
-      "A sacred high-altitude trans-Himalayan brackish lake at 4,522 meters elevation on the Changthang plateau, supporting rare alpine breeding avifauna.",
+      "A pristine, high-altitude alpine lake nestled at 4,595 meters in Changthang, Ladakh, providing critical breeding grounds for the endangered black-necked crane.",
     overview:
-      "Perched high on the Changthang cold desert plateau of eastern Ladakh, Tso Moriri (Mountain Lake) is an endorheic alpine lake flanked by snowcapped Himalayan peaks exceeding 6,000 meters. Fed by melting glaciers and alpine springs, the lake has no surface outlet and exhibits an oligotrophic to slightly brackish chemical profile.",
+      "Also known as the Mountain Lake, Tso Moriri is a deep, endorheic oligotrophic lake situated on the Changthang Plateau of southeastern Ladakh. Flanked by glaciated peaks exceeding 6,000 meters, it is fed by snowmelt streams and subterranean springs. It ranges from freshwater at its northern inlet deltas to slightly brackish salinity in its deep central basin.",
     importance: {
       ecological:
-        "Represents an invaluable trans-Himalayan freshwater reservoir and climate monitoring sentinel, sensitive to high-altitude cryosphere retreats.",
+        "Represents an exceptional, intact high-altitude endorheic lacustrine wetland system playing an essential role in microclimate regulation and glacial melt storage across the arid plateau.",
       wildlife:
-        "One of the very few breeding sites in India for the globally vulnerable Black-necked Crane (Grus nigricollis) and the highest breeding ground for Bar-headed Geese.",
+        "The primary breeding ground in India for the globally vulnerable Black-necked crane (Grus nigricollis) and the highest-altitude breeding colony of Bar-headed geese (Anser indicus).",
       local:
-        "Held deeply sacred by the nomadic Changpa pastoralist communities, whose pashmina goats graze the surrounding fragile alpine steppe pastures.",
+        "Sacred to indigenous Changpa pastoral nomads whose traditional pastoral grazing practices are linked with high-altitude pasture stewardship around Korzok village.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Crisp turquoise waters of alpine Tso Moriri backed by snow-clad peaks, Ladakh.",
+      "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Glacial turquoise waters of Tso Moriri ringed by the snowcapped Changthang peaks.",
     keyWildlife: [
       "Black-necked Crane",
       "Bar-headed Goose",
@@ -501,72 +538,78 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Unregulated Tourist Footfall & Off-Roading",
         description:
-          "Vehicles driving over fragile shoreline meadows damage breeding nests of ground-nesting cranes and compact sensitive soils.",
-        severity: "Moderate",
+          "Vehicles driving across fragile shoreline meadows damage subterranean burrows and nests of ground-nesting waterbirds while compacting alpine peat turf.",
+        severity: "High",
       },
       {
         title: "Solid Waste & Sanitation Pressure",
         description:
-          "Seasonal campsites at Korzok village generate plastic waste and sewage with minimal high-altitude waste processing capacity.",
+          "Seasonal tourist campsites at Korzok village generate substantial plastic waste and sewage with minimal high-altitude biodegradation capacity.",
         severity: "Moderate",
       },
       {
         title: "Glacial Retreat & Altered Hydrology",
         description:
-          "Accelerated climate warming accelerates seasonal glacial ablation, threatening future inflow volume stability.",
-        severity: "High",
+          "Accelerated thermal warming in the Trans-Himalayas accelerates seasonal glacial retreat, threatening long-term inflow water stability.",
+        severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Tso Moriri (Site No. 1213)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Tsomoriri (Site No. 1213)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/1213",
+        accessedAt: "October 2026",
       },
       {
         title: "Conservation Ecology of High-Altitude Wetlands in Ladakh",
-        organization: "Wildlife Protection Department, UT of Ladakh",
+        organization: "Department of Wildlife Protection, UT of Ladakh",
         year: 2021,
         citationType: "Government Gazette",
+        url: "https://ladakh.nic.in",
+        accessedAt: "October 2026",
       },
       {
         title: "Breeding Ecology of Black-necked Crane at Changthang Wetlands",
         organization: "Nature Conservation Foundation (NCF)",
         year: 2023,
         citationType: "Research Paper",
+        url: "https://www.ncf-india.org",
+        accessedAt: "October 2026",
       },
     ],
-    threatLevel: "Low",
+    threatLevel: "Moderate",
   },
   {
     id: "deepor-beel",
     name: "Deepor Beel",
     state: "Assam",
     country: "India",
-    coordinates: { lat: 26.1264, lng: 91.6483 },
+    coordinates: { lat: 26.1264, lng: 91.6592 },
     designation: "Ramsar Site",
     designationYear: 2002,
+    ramsarSiteNo: 1207,
     areaKm2: 40,
     elevationMeters: 53,
-    biogeographicZone: "Brahmaputra Valley Floodplain",
-    category: "Freshwater Lake",
+    biogeographicZone: "Brahmaputra Valley Biogeographical Zone (9A)",
+    category: "Riverine Floodplain",
     shortDescription:
-      "A permanent, deep freshwater lake situated in a former channel of the Brahmaputra River, acting as an irreplaceable ecological corridor for Asian elephants.",
+      "A permanent riverine oxbow lake in the Brahmaputra floodplain southwest of Guwahati, serving as an irreplaceable corridor for wild Asian elephants.",
     overview:
-      "Deepor Beel is a permanent freshwater lake and oxbow wetland lying in a former channel of the mighty Brahmaputra River, situated southwest of Guwahati city. Surrounded by the forested Rani and Garbhanga hill ranges, it provides a crucial natural drainage basin storing excess stormwaters during Assam's torrential monsoon season.",
+      "Deepor Beel is a sprawling freshwater wetland situated in an abandoned channel of the Brahmaputra River. It is fed by the Basistha and Kalmani rivers and discharges northward into the Brahmaputra via the Khanajan channel. Acting as the sole natural storm-water drainage reservoir for Guwahati metropolitan area, it is home to rich aquatic macrophytes and foraging avifauna.",
     importance: {
       ecological:
-        "Serves as the primary biological sponge protecting Guwahati from urban flooding while purifying hydrological runoff prior to joining the Brahmaputra.",
+        "Acts as a natural stormwater detention basin mitigating monsoon urban flooding across Guwahati city and providing groundwater replenishment for peripheral settlements.",
       wildlife:
-        "A recognized elephant corridor where wild Asian Elephant herds (Elephas maximus) migrate to bathe and feed, alongside large concentrations of endangered Greater Adjutant Storks.",
+        "Crucial refuge for the endangered Asian elephant (Elephas maximus) and one of the largest congregational sites in Assam for the endangered Greater Adjutant stork (Leptoptilos dubius).",
       local:
-        "Sustains community-managed subsistence fishing and harvesting of sacred lotus and water chestnuts by indigenous Karbi and Assamese villagers.",
+        "Provides foundational sustenance through commercial fishing, edible lotus and water lily harvesting, and fodder collection for over a dozen indigenous Karbi and Assamese villages.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Lush wetland reeds and morning fog along the perimeter of Deepor Beel, Assam.",
+      "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Marshy channels and lush water hyacinth beds of Deepor Beel, Assam.",
     keyWildlife: [
       "Asian Elephant",
       "Greater Adjutant Stork",
@@ -578,72 +621,78 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Municipal Garbage Dumping",
         description:
-          "The adjacent Boragaon dumping site leaches hazardous chemical pollutants and microplastics straight into the core water body.",
-        severity: "Severe",
+          "The adjacent Boragaon dumping site directly leaches hazardous chemical pollutants, microplastics, and heavy metals straight into the core water body.",
+        severity: "Critical",
       },
       {
         title: "Railway Track Bisecting Corridor",
         description:
           "A major broad-gauge railway line cuts directly through the southern boundary, resulting in frequent fatal collisions with crossing elephants.",
-        severity: "Severe",
+        severity: "Critical",
       },
       {
         title: "Encroachment by Warehousing & Industry",
         description:
-          "Rapid commercial construction shrinks peripheral buffer zones and blocks natural flood spill channels.",
+          "Rapid commercial construction and logistics warehousing shrink peripheral buffer zones and block natural flood spill channels.",
         severity: "High",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Deepor Beel (Site No. 1207)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Deepor Beel (Site No. 1207)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/1207",
+        accessedAt: "October 2026",
       },
       {
         title: "Action Plan for Restoration of Polluted Stretches of Deepor Beel",
         organization: "Pollution Control Board Assam (PCBA)",
         year: 2020,
         citationType: "Government Gazette",
+        url: "https://pcbassam.org",
+        accessedAt: "October 2026",
       },
       {
         title: "Status and Movement Ecology of Elephants in Deepor Beel Sanctuary",
         organization: "Aaranyak Biodiversity Conservation Organization",
         year: 2022,
         citationType: "Research Paper",
+        url: "https://www.aaranyak.org",
+        accessedAt: "October 2026",
       },
     ],
-    threatLevel: "Critical",
+    threatLevel: "Severe",
   },
   {
     id: "bhoj-wetland",
     name: "Bhoj Wetland",
     state: "Madhya Pradesh",
     country: "India",
-    coordinates: { lat: 23.2392, lng: 77.34 },
+    coordinates: { lat: 23.25, lng: 77.338 },
     designation: "Ramsar Site",
     designationYear: 2002,
-    areaKm2: 32,
+    ramsarSiteNo: 1206,
+    areaKm2: 32.01,
     elevationMeters: 523,
-    biogeographicZone: "Central Highlands & Malwa Plateau",
-    category: "Wetland Complex",
+    biogeographicZone: "Malwa Plateau / Central Highlands (6A)",
+    category: "Freshwater Lake",
     shortDescription:
-      "An artificial wetland system composed of the Upper and Lower Lakes of Bhopal, constructed originally in the 11th century by Paramara King Bhoja.",
+      "A dual man-made lake system created in the 11th century in Bhopal, providing pristine potable water and crucial wintering habitat for resident cranes.",
     overview:
-      "Bhoj Wetland consists of two contiguous urban water bodies: the Upper Lake (Bada Talaab) created in the 11th century by constructing an earthen dam across the Kolans River, and the Lower Lake (Chhota Talaab) built in 1794. It is one of the oldest and largest human-engineered urban wetland ecosystems in peninsular India.",
+      "Consisting of two contiguous man-made reservoirs—the Upper Lake (Bhojtal, created in the 11th century by Paramara King Raja Bhoj) and the Lower Lake—Bhoj Wetland is located in Bhopal. Fed by the Kolans River and catchment streams, the Upper Lake has a monumental catchment of 361 km², serving as the principal source of drinking water for over 40% of the city's inhabitants.",
     importance: {
       ecological:
-        "Regulates urban microclimates, recharges the Malwa plateau groundwater aquifers, and traps organic pollutants before river discharge.",
+        "Sustains the hydrological security of Bhopal city, recharges municipal groundwater aquifers, and buffers regional climate fluctuations.",
       wildlife:
-        "Regular wintering haven for majestic Sarus Cranes (Grus antigone), hosting more than 179 bird species and 43 fish varieties despite close urban proximity.",
+        "Wintering haven on the Central Asian Flyway attracting over 20,000 waterfowl and supporting healthy resident populations of the vulnerable Sarus crane.",
       local:
-        "Supplies over 40% of the potable municipal water for the population of Bhopal and powers local water sports and recreation.",
+        "Supplies over 30 million gallons of potable water daily to Bhopal and supports vibrant eco-tourism, sailing academies, and managed inland fisheries.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Morning mist and emergent reed beds across the Upper Lake basin at Bhoj Wetland, Bhopal.",
+      "https://images.unsplash.com/photo-1549608276-5786777e6587?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Expansive waters and green shoreline borders of Upper Lake, Bhoj Wetland.",
     keyWildlife: [
       "Sarus Crane",
       "White-rumped Vulture",
@@ -655,41 +704,46 @@ export const WETLANDS_DATA: Wetland[] = [
       {
         title: "Urban Encroachment & Shoreline Construction",
         description:
-          "Unauthorized residential and commercial developments continuously encroach upon the full reservoir level (FRL) zone.",
+          "Unauthorized residential and commercial developments continuously encroach upon the full reservoir level (FRL) buffer zone.",
         severity: "High",
       },
       {
         title: "Domestic Sewage & Organic Influx",
         description:
-          "Multiple unintercepted urban drains empty into the lakes, elevating biochemical oxygen demand and stimulating invasive weed growth.",
+          "Multiple unintercepted urban drains empty into the lake system, elevating biochemical oxygen demand and stimulating invasive weed growth.",
         severity: "Moderate",
       },
       {
         title: "Religious Immersion Residues",
         description:
-          "Seasonal idol immersions deposit plaster of Paris, synthetic paints, and toxic metals into the lake sediment bed.",
+          "Seasonal idol immersions deposit plaster of Paris, synthetic paints, and toxic heavy metals into the lake sediment bed.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Bhoj Wetland (Site No. 1206)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Bhoj Wetland (Site No. 1206)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/1206",
+        accessedAt: "October 2026",
       },
       {
-        title: "Lake Conservation and Eco-Restoration Program Report",
+        title: "Lake Conservation and Eco-Restoration Program Report for Bhoj Wetland",
         organization: "Environmental Planning & Coordination Organisation (EPCO), MP",
         year: 2019,
         citationType: "Government Gazette",
+        url: "https://epco.in",
+        accessedAt: "October 2026",
       },
       {
-        title: "Limnological Assessment of Bhoj Wetland System",
+        title: "Limnological Assessment and Siltation Dynamics of Bhoj Wetland System",
         organization: "Barkatullah University Bioscience Department",
         year: 2021,
         citationType: "Research Paper",
+        url: "https://www.bubhopal.ac.in",
+        accessedAt: "October 2026",
       },
     ],
     threatLevel: "Moderate",
@@ -699,28 +753,29 @@ export const WETLANDS_DATA: Wetland[] = [
     name: "Point Calimere Sanctuary",
     state: "Tamil Nadu",
     country: "India",
-    coordinates: { lat: 10.3, lng: 79.8667 },
+    coordinates: { lat: 10.32, lng: 79.85 },
     designation: "Ramsar Site",
     designationYear: 2002,
+    ramsarSiteNo: 1210,
     areaKm2: 385,
-    elevationMeters: 4,
-    biogeographicZone: "Coromandel Coastal Plain",
-    category: "Mangrove Swamps",
+    elevationMeters: 1,
+    biogeographicZone: "Coromandel Coastal Plain (8A)",
+    category: "Wetland Complex",
     shortDescription:
-      "A coastal peninsula on the Palk Strait featuring shallow saline mudflats, tropical dry evergreen forest, and salt marshes that attract mass flamingo congregations.",
+      "A rich mosaic of mangroves, hypersaline lagoons, tidal mudflats, and tropical dry evergreen forests on the Palk Strait coast of Tamil Nadu.",
     overview:
-      "Point Calimere is a low-energy coastal promontory jutting into the Palk Strait where the Coromandel coast turns west towards the Gulf of Mannar. The site encompasses the Muthupet mangrove wetland, open marine lagoons, hyper-saline salt pans, and one of the last remaining remnants of pristine tropical dry evergreen forest in peninsular India.",
+      "Point Calimere Wildlife and Bird Sanctuary is situated on a low promontory of the Coromandel Coast in Nagapattinam district. It encompasses the Muthupet mangrove wetlands, Great Vedaranyam Swamp, and expansive intertidal mudflats. It is bounded to the south by the shallow Palk Strait and to the east by the Bay of Bengal.",
     importance: {
       ecological:
-        "The extensive Muthupet mangroves attenuate tidal surge currents, anchor soft coastal soils, and export vital detrital biomass to inshore fisheries.",
+        "The Muthupet mangrove ecosystem acts as a critical coastal bio-shield preventing marine erosion, mitigating storm surge velocity, and stabilizing coastal mudflats.",
       wildlife:
-        "World-renowned for congregation of over 30,000 Greater Flamingos in peak winter, alongside rare mammals like the Indian Blackbuck and nesting Olive Ridley turtles.",
+        "A premier staging terminal on the Central Asian Flyway hosting tens of thousands of Greater Flamingos and rare shorebirds like the critically endangered Spoon-billed sandpiper.",
       local:
-        "Provides nursery waters sustaining coastal fishing villages of Nagapattinam and Thiruvarur, alongside historic salt manufacturing operations.",
+        "Directly sustains coastal artisanal fisheries and traditional mud crab farming while supporting coastal protection for delta farmers.",
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Vast tidal mudflats and coastal saline wetlands of Point Calimere.",
+      "https://images.unsplash.com/photo-1510853675132-58241c941e4f?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Vast tidal mudflats and coastal lagoons teeming with wading shorebirds at Point Calimere.",
     keyWildlife: [
       "Greater Flamingo",
       "Blackbuck",
@@ -733,43 +788,48 @@ export const WETLANDS_DATA: Wetland[] = [
         title: "Freshwater Inflow Reduction",
         description:
           "Upstream damming of the Cauvery distributaries severely curtails seasonal freshwater and sediment flushing into Muthupet mangroves.",
-        severity: "High",
+        severity: "Severe",
       },
       {
         title: "Hyper-salinity in Lagoon Inlets",
         description:
-          "Effluents from large-scale commercial salt-pan operations increase localized salinity beyond the tolerance of mangrove propagules.",
-        severity: "Moderate",
+          "Discharge of concentrated brine effluents from commercial salt-pan operations elevates localized salinity beyond tolerance thresholds.",
+        severity: "High",
       },
       {
         title: "Illegal Feral Grazing",
         description:
-          "Feral cattle and introduced prosopis weeds exert grazing stress on native dry evergreen seedlings and shorebird nesting zones.",
+          "Feral cattle and introduced Prosopis juliflora weeds exert high grazing stress on native dry evergreen seedlings and shorebird nesting dunes.",
         severity: "Moderate",
       },
     ],
     sources: [
       {
-        title: "Ramsar Information Sheet — Point Calimere Wildlife and Bird Sanctuary (Site No. 1210)",
-        organization: "Ramsar Sites Information Service",
+        title: "Information Sheet on Ramsar Wetlands (RIS) — Point Calimere Wildlife and Bird Sanctuary (Site No. 1210)",
+        organization: "Ramsar Sites Information Service (RSIS)",
         year: 2002,
         citationType: "Official Registry",
         url: "https://rsis.ramsar.org/ris/1210",
+        accessedAt: "October 2026",
       },
       {
-        title: "Management Plan for Point Calimere Wildlife Sanctuary",
+        title: "Management Plan for Point Calimere Wildlife Sanctuary & Muthupet Mangroves",
         organization: "Tamil Nadu Forest Department",
         year: 2018,
         citationType: "Government Gazette",
+        url: "https://www.forests.tn.gov.in",
+        accessedAt: "October 2026",
       },
       {
         title: "Shorebird Migration and Flamingo Population Dynamics at Point Calimere",
         organization: "Bombay Natural History Society (BNHS)",
         year: 2022,
         citationType: "Research Paper",
+        url: "https://www.bnhs.org",
+        accessedAt: "October 2026",
       },
     ],
-    threatLevel: "Moderate",
+    threatLevel: "High",
   },
 ];
 

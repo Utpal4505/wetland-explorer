@@ -51,7 +51,9 @@ export function ProfileHeader({ wetland }: ProfileHeaderProps) {
             <span>{wetland.category}</span>
           </Badge>
           <Badge variant="default" size="sm" className="font-semibold tracking-wide shadow-xs">
-            {wetland.designation} {wetland.designationYear ? `• ${wetland.designationYear}` : ""}
+            {wetland.designation}
+            {wetland.ramsarSiteNo ? ` #${wetland.ramsarSiteNo}` : ""}
+            {wetland.designationYear ? ` • ${wetland.designationYear}` : ""}
           </Badge>
           {wetland.biogeographicZone && (
             <span className="inline-flex text-[11px] font-mono text-muted-foreground bg-surface-muted px-2.5 py-0.5 rounded-sm border border-border">

@@ -1,3 +1,5 @@
+import { WetlandSource } from "@/types/wetland";
+
 export type SpeciesTaxa = "Avifauna" | "Mammal" | "Aquatic & Fish" | "Reptile";
 
 export type SpeciesIucnStatus = "CR" | "EN" | "VU" | "NT" | "LC";
@@ -19,7 +21,9 @@ export interface Species {
   ecologicalRole: string; // Why wetland habitats are vital for this species
   image: string;
   imageCaption?: string;
+  photoCredit?: string;
   iucnStatus: SpeciesIucnStatus;
   seasonality: SpeciesSeasonality;
   wetlands: string[]; // Wetland IDs referencing WETLANDS_DATA
+  sources?: WetlandSource[];
 }

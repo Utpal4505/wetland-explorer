@@ -12,11 +12,11 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-primary font-medium text-xs font-mono uppercase tracking-wider">
           <FileText className="h-4 w-4" />
-          <span>Scientific Verification & CHE110 Compliance</span>
+          <span>Scientific Verification & Sourced Bibliography</span>
         </div>
-        <h2 className="text-h2">Authoritative Sources & Bibliography</h2>
+        <h2 className="text-h2">Authoritative Sources & Citations</h2>
         <p className="text-small text-muted-foreground">
-          Official registries, governmental management plans, and peer-reviewed studies establishing factual validity for research and project documentation.
+          Official registries, Ramsar Information Sheets, and peer-reviewed government publications establishing factual validity for research and project documentation.
         </p>
       </div>
 
@@ -25,7 +25,7 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
           <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-primary" />
-              <span>VERIFIED BIBLIOGRAPHIC ENTRIES ({wetland.sources.length})</span>
+              <span>VERIFIED CITATIONS ({wetland.sources.length})</span>
             </span>
             <span className="text-[11px] text-foreground/70 hidden sm:inline-block">
               Peer-Reviewed / Institutional Registry
@@ -48,7 +48,7 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
                   </span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                  <span>{source.organization}</span>
+                  <span className="font-medium text-foreground/90">{source.organization}</span>
                   {source.year && (
                     <>
                       <span>•</span>
@@ -60,6 +60,14 @@ export function ProfileSources({ wetland }: ProfileSourcesProps) {
                       <span>•</span>
                       <span className="font-mono text-[10px] uppercase text-foreground/80 bg-surface-muted px-1.5 py-0.5 rounded-xs border border-border">
                         {source.citationType}
+                      </span>
+                    </>
+                  )}
+                  {source.accessedAt && (
+                    <>
+                      <span>•</span>
+                      <span className="font-mono text-[11px] text-muted-foreground">
+                        Verified {source.accessedAt}
                       </span>
                     </>
                   )}

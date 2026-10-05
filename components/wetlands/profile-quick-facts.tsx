@@ -29,7 +29,9 @@ export function ProfileQuickFacts({ wetland }: ProfileQuickFactsProps) {
     },
     {
       label: "DESIGNATION STATUS",
-      value: wetland.designationYear
+      value: wetland.ramsarSiteNo
+        ? `${wetland.designation} #${wetland.ramsarSiteNo} (${wetland.designationYear})`
+        : wetland.designationYear
         ? `${wetland.designation} (${wetland.designationYear})`
         : wetland.designation,
       icon: Calendar,

@@ -39,8 +39,9 @@ export interface WetlandThreat {
 export interface WetlandSource {
   title: string;
   organization: string;
+  url: string;
+  accessedAt?: string;
   year?: number;
-  url?: string;
   citationType?: "Official Registry" | "Research Paper" | "Government Gazette";
 }
 
@@ -62,6 +63,7 @@ export interface Wetland {
   coordinates: WetlandCoordinates;
   designation: WetlandDesignation;
   designationYear?: number;
+  ramsarSiteNo?: number;
   areaKm2: number;
   elevationMeters?: number;
   biogeographicZone?: string;

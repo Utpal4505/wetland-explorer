@@ -83,7 +83,7 @@ export function ExploreFilters({
           >
             All States ({totalCount})
           </button>
-          {ALL_STATES.map((state) => (
+          {ALL_STATES.map((state: string) => (
             <button
               key={state}
               type="button"
