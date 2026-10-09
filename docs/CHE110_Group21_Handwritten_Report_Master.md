@@ -44,20 +44,21 @@ Wetlands represent dynamic, transitional ecotones situated between terrestrial l
 4. **Tidal Mangrove Swamps:** Inter-tidal halophytic forest swamps providing critical coastal storm surge mitigation (e.g., Sundarbans, West Bengal).
 5. **Freshwater Lakes with Unique Geomorphology:** Natural tectonic and volcanic lakes, including the floating biomass (*phumdi*) ecosystem of Loktak Lake, Manipur.
 
-India currently encompasses over **85 designated Ramsar Sites of International Importance**, spanning a combined surface footprint exceeding 1.35 million hectares.
+India currently encompasses **98 designated Ramsar Sites of International Importance** (as of 30 January 2026, Ramsar Convention Secretariat), spanning a combined surface footprint exceeding 1.35 million hectares.
 
 ### 1.2 The Biogeochemical and Environmental Chemistry Value (CHE110 Context)
 From an environmental chemistry perspective, wetlands fulfill irreplaceable ecological functions:
 * **The Biological "Kidneys" of Ecosystems:** Wetlands act as natural chemical purification basins. In waterlogged, anaerobic sediment horizons, specialized heterotrophic bacterial communities carry out **microbial denitrification**:
   $$\text{NO}_3^- \xrightarrow{\text{reduction}} \text{NO}_2^- \rightarrow \text{NO} \rightarrow \text{N}_2\text{O} \rightarrow \text{N}_2\uparrow$$
-  This biological reaction converts hazardous nitrate ($NO_3^-$) runoff originating from agricultural fertilizers into harmless, inert atmospheric dinitrogen gas ($N_2$), preventing the catastrophic eutrophication and oxygen depletion of adjoining freshwater aquifers.
-* **Heavy Metal Bio-accumulation:** Hydrophytic emergent macrophytes—such as *Phragmites australis*, *Typha latifolia*, and *Eichhornia crassipes*—accumulate, chelate, and immobilize heavy metal ions ($Pb^{2+}, Cd^{2+}, Cr^{3+}, As^{3+}$) and suspended particulate loads within their root-rhizome complexes.
-* **Blue Carbon Sequestration:** Saturated, anoxic soil conditions severely retard microbial decomposition of organic litter. Consequently, coastal mangroves and inland peatlands sequester organic carbon at rates **up to 55 times greater** than terrestrial tropical rainforests, acting as critical global sinks against global warming.
-* **Hydrological Buffering:** Wetlands function as colossal sponge basins, attenuating peak monsoon flood hydrographs, replenishing groundwater tables, and buffering coastal zones from storm surges and saltwater intrusion.
+  This biological reaction reduces excess nitrate ($NO_3^-$) from agricultural fertilizer runoff. *Chemical Nuance:* Under incomplete denitrification (such as high dissolved oxygen or low carbon conditions), nitrous oxide ($N_2O$)—a potent greenhouse gas—can be released.
+* **Heavy Metal Retention & Assimilation:** Hydrophytic emergent macrophytes—such as *Phragmites australis*, *Typha latifolia*, and *Eichhornia crassipes*—can take up, chelate, and immobilize heavy metal ions ($Pb^{2+}, Cd^{2+}, Cr^{3+}, As^{3+}$) in root-rhizome tissues. However, plants have toxic saturation thresholds, and contaminated biomass requires managed handling.
+* **Carbon Accumulation:** Saturated, anoxic soil conditions retard microbial decomposition of organic litter, allowing organic carbon to accumulate over extended periods, with rates varying significantly across peatlands, coastal mangroves, and seasonal swamps.
+* **Hydrological Buffering:** Wetlands function as natural flood retention basins, attenuating peak monsoon flood hydrographs, replenishing groundwater tables, and buffering coastal zones from storm surges.
+* **⚠️ Ecological Limits:** Wetlands possess natural assimilative thresholds. Severe industrial chemical loading and altered hydrological flows overwhelm these biogeochemical pathways.
 
 ### 1.3 Detailed Problem Statement: India's Disappearing Wetlands
-Despite their vital chemical and ecological functions, India's wetlands face an acute anthropogenic survival crisis:
-1. **Alarming Spatial Depletion:** Satellite remote sensing surveys reveal that India has lost between **30% and 50%** of its natural wetland surface area over the past three decades due to rapid, unregulated urbanization.
+Despite their vital chemical and ecological functions, India's wetlands face mounting anthropogenic stress:
+1. **Accelerated Degradation:** Wetlands face mounting pressure from rapid urban expansion, land-use conversion, untreated municipal sewage, and agrochemical runoff.
 2. **The "Wasteland" Fallacy:** Historically, municipal town planners and local communities misclassified wetlands as unproductive "wastelands" or disease-ridden swamps. This misconception justified deliberate drainage, land reclamation, and municipal solid waste dumping.
 3. **Non-Point Source Eutrophication:** Uncontrolled discharge of untreated municipal sewage and excessive agrochemical runoff laden with synthetic fertilizers ($NPK$) stimulates catastrophic algal blooms, reducing Dissolved Oxygen ($DO < 3\text{ mg/L}$) and elevating Biological Oxygen Demand ($BOD > 12\text{ mg/L}$), triggering mass aquatic mortality.
 4. **Siltation and Catchment Deforestation:** Soil erosion in degraded upstream catchment basins deposits millions of tons of sediment annually, progressively reducing water-holding capacity and choking lead channels (as seen in Chilika and Harike).
@@ -74,14 +75,14 @@ An extensive literature review was conducted to ground this project in validated
    The Convention establishes nine scientific criteria for designating wetlands of international importance (Criteria 1–9), based on uniqueness of biogeographical representative types, support for vulnerable/endangered species (Criterion 2), and waterbird population thresholds exceeding 20,000 individuals (Criterion 5). It also establishes the **Montreux Record**, a register of Ramsar sites where adverse changes in ecological character have occurred or are imminent due to technological development, pollution, or human interference. In India, **Keoladeo National Park** and **Loktak Lake** remain listed on the Montreux Record, while **Chilika Lake** was successfully restored and delisted in 2002.
 
 2. **Ministry of Environment, Forest and Climate Change (MoEFCC), Govt. of India (2017) — *Wetlands (Conservation and Management) Rules, 2017*:**  
-   Notified under the parent Environment (Protection) Act, 1986, these statutory rules mandate the constitution of **State Wetland Authorities (SWAs)** across all Indian states and Union Territories. The rules strictly prohibit:
-   - Setting up or expanding industries within wetland zones of influence.
+   Notified under the parent Environment (Protection) Act, 1986, these statutory rules establish a conservation framework specifically for Ramsar-designated sites and wetlands officially notified under the Rules by **State Wetland Authorities (SWAs)**. The rules strictly prohibit:
+   - Setting up or expanding non-ecological industries within wetland zones of influence.
    - Dumping of untreated solid waste, plastic, and municipal sewage.
    - Encroachment, permanent civil construction, and unauthorized reclamation.  
-   Furthermore, the Government of India launched the **Amrit Dharohar Initiative (2023)** during the 2023 Union Budget to promote conservation values, eco-tourism, and sustainable community livelihoods across designated Ramsar sites.
+   Furthermore, the Government of India launched the **Amrit Dharohar Initiative (2023)** during the 2023 Union Budget to promote conservation values, eco-tourism, and sustainable community livelihoods across designated Ramsar sites over a 3-year span.
 
-3. **Bassi, N., Kumar, M. D., Sharma, A., & Pardha-Saradhi, P. (2014) — *Status of wetlands in India: A review of threats, efforts, and challenges* (Atmospheric and Oceanic Sciences):**  
-   This landmark review analyzed spatial shrinkage across major Indian wetland complexes. The authors highlighted that urban wetlands (such as Deepor Beel in Guwahati and Bhoj Wetland in Bhopal) suffer severely from municipal solid waste dumping and stormwater channel severance. The study concluded that conventional top-down regulatory enforcement fails unless accompanied by public participatory monitoring and transparent spatial information systems.
+3. **Bassi, N., Kumar, M. D., Sharma, A., & Pardha-Saradhi, P. (2014) — *Status of wetlands in India: A review of extent, ecosystem benefits, threats and management strategies* (Journal of Hydrology: Regional Studies):**  
+   This landmark peer-reviewed synthesis analyzed spatial shrinkage and water quality degradation across major Indian wetland complexes. The authors highlighted that urban and peri-urban wetlands (such as Deepor Beel in Guwahati and Bhoj Wetland in Bhopal) suffer severely from municipal solid waste dumping and stormwater channel severance. The study concluded that conventional top-down regulatory enforcement fails unless accompanied by public participatory monitoring and transparent spatial information systems.
 
 4. **Zoological Survey of India (ZSI) & Wildlife Institute of India (WII) (2022) — *Faunal Diversity and Habitat Fragility in Indian Ramsar Sites*:**  
    Technical monographs documenting the reliance of specialized indicator taxa on wetland integrity. Flagship species analyzed include:
@@ -290,7 +291,7 @@ The execution of our CHE110 CA1 assignment on **"Wetlands Protection Awareness w
 ### 6.2 Key Takeaways & Recommendations
 * **Digital Tools are Force Multipliers for Ecology:** In an era dominated by digital communication, traditional paper-based environmental awareness must be complemented by interactive, geospatial web applications that resonate with younger generations.
 * **Wetlands Require Community Guardianship:** Top-down statutory regulations (such as the Wetlands Rules 2017) are necessary but insufficient on their own. Long-term conservation requires informed, vigilant local citizens who understand the ecological boundaries of their water bodies.
-* **Future Scope:** We plan to scale Wetland Explorer to encompass all 85+ Indian Ramsar sites, introduce real-time crowd-sourced water quality reporting (allowing citizens to log pH, DO, and visible pollution events), and localize the platform into regional Indian languages (Hindi, Punjabi, Odia, Assamese, Bengali, and Malayalam) to empower local riparian fishing communities.
+* **Future Scope:** We plan to scale Wetland Explorer to encompass all 98 Indian Ramsar sites, introduce real-time crowd-sourced water quality reporting (allowing citizens to log pH, DO, and visible pollution events), and localize the platform into regional Indian languages (Hindi, Punjabi, Odia, Assamese, Bengali, and Malayalam) to empower local riparian fishing communities.
 
 ---
 
@@ -298,14 +299,15 @@ The execution of our CHE110 CA1 assignment on **"Wetlands Protection Awareness w
 
 *(Standardized APA Academic Citations)*
 
-1. **Bassi, N., Kumar, M. D., Sharma, A., & Pardha-Saradhi, P. (2014).** Status of wetlands in India: A review of threats, efforts, and challenges. *Atmospheric and Oceanic Sciences*, 2(2), 1–10. https://doi.org/10.1016/j.aos.2014.05.002
+1. **Bassi, N., Kumar, M. D., Sharma, A., & Pardha-Saradhi, P. (2014).** Status of wetlands in India: A review of extent, ecosystem benefits, threats and management strategies. *Journal of Hydrology: Regional Studies*, 2, 1–19. https://doi.org/10.1016/j.ejrh.2014.07.001
 2. **Central Pollution Control Board (CPCB). (2020).** *Water Quality Monitoring in Major Indian Lakes and Reservoirs*. Ministry of Environment, Forest and Climate Change, Government of India. New Delhi: CPCB Technical Reports.
 3. **Chilika Development Authority (CDA). (2023).** *Ecological Restoration and Hydrological Dynamics of Chilika Lagoon*. Government of Odisha. Bhubaneswar: CDA Publications.
 4. **Gopal, B. (2013).** *Future of Wetlands in India: Managing for Multiple Services*. New Delhi: National Institute of Ecology.
 5. **International Union for Conservation of Nature (IUCN). (2024).** *The IUCN Red List of Threatened Species*. Version 2024-2. Retrieved October 5, 2026, from https://www.iucnredlist.org
-6. **Ministry of Environment, Forest and Climate Change (MoEFCC). (2017).** *Wetlands (Conservation and Management) Rules, 2017*. The Gazette of India: Extraordinary, Part II—Sec. 3(i). New Delhi: Government of India.
+6. **Ministry of Environment, Forest and Climate Change (MoEFCC). (2017).** *Wetlands (Conservation and Management) Rules, 2017*. Regulatory framework applying to Ramsar Sites and wetlands notified under the Rules. The Gazette of India: Extraordinary, Part II—Sec. 3(i). New Delhi: Government of India.
 7. **Ministry of Environment, Forest and Climate Change (MoEFCC). (2023).** *Wetlands of India Portal*. Government of India. Retrieved October 5, 2026, from https://indianwetlands.in
-8. **Ramsar Convention Secretariat. (1971, revised 2024).** *The Convention on Wetlands of International Importance especially as Waterfowl Habitat*. Gland, Switzerland: Ramsar Secretariat.
+8. **Ramsar Convention Secretariat. (2026).** *List of Wetlands of International Importance (The Ramsar List)*. India reached 98 Ramsar Sites as of 30 January 2026. Gland, Switzerland: Ramsar Secretariat. https://www.ramsar.org
 9. **Ramsar Sites Information Service (RSIS). (2024).** *Official Ramsar Information Sheets (RIS) for India: Sites No. 229, 230, 462, 463, 1206, 1207, 1210, 1213, 1214, 2370*. Gland, Switzerland: Ramsar RSIS. https://rsis.ramsar.org
 10. **Wildlife Institute of India (WII). (2022).** *Status of Flagship Aquatic Species in Major Riverine and Wetland Basins of India*. Dehradun: Wildlife Institute of India.
-11. **Zoological Survey of India (ZSI). (2022).** *Faunal Diversity in Ramsar Wetlands of India (Vols. 1–3)*. Kolkata: Director, Zoological Survey of India.
+11. **WWF-India. (2022).** *Conservation Issues at Harike Lake*. Critical Regions: Freshwater & Wetlands Programme. New Delhi: World Wide Fund for Nature - India.
+12. **Zoological Survey of India (ZSI). (2022).** *Faunal Diversity in Ramsar Wetlands of India (Vols. 1–3)*. Kolkata: Director, Zoological Survey of India.
