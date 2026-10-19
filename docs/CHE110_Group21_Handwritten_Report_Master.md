@@ -1,16 +1,16 @@
 # 📝 CHE110 — Environmental Studies CA1 Assignment
-## Ultra-Concise Handwritten Report Master (Strict 7–8 Pages)
+## Concise Handwritten Report Master (Strict 7 Pages Format)
 
 > **Quick Instructions for Writing:**  
-> • Each page below (`--- PAGE 1 ---` to `--- PAGE 8 ---`) contains roughly **18–25 handwritten lines**.  
-> • Write in neat bullet points with comfortable line spacing.  
-> • Leave a small rectangular box (2–3 inches) on Pages 4, 5, and 7 to paste printed screenshots.
+> • This document is divided into **exactly 7 pages** (`--- PAGE 1 OF 7 ---` to `--- PAGE 7 OF 7 ---`).  
+> • Each page has roughly **18–24 handwritten lines** with clean bullet points.  
+> • Leave small 2-inch rectangular boxes on Pages 4 and 6 to paste your printed screenshots.
 
 ---
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    --- PAGE 1 OF 8: COVER PAGE ---
+                    --- PAGE 1 OF 7: COVER PAGE ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -43,7 +43,7 @@
 | Component | Max Marks | Marks Awarded |
 |---|:---:|:---:|
 | 1. Introduction & Literature Review | 20 | |
-| 2. Product Design & Technical Rigor | 25 | |
+| 2. Product Design & Feature Implementation | 25 | |
 | 3. Environmental Chemistry Core (CHE110) | 20 | |
 | 4. Social Media Awareness & Outreach | 20 | |
 | 5. Report Quality, Presentation & Viva | 15 | |
@@ -56,15 +56,15 @@
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                  --- PAGE 2 OF 8: INTRODUCTION ---
+                  --- PAGE 2 OF 7: INTRODUCTION ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 1. Introduction (Topic & Problem Statement)
 
 ### 1.1 Definition & Scope of Wetlands
-* **Ramsar Convention Definition (Article 1.1):** Wetlands are *"areas of marsh, fen, peatland or water, whether natural or artificial, permanent or temporary, with water that is static or flowing, fresh, brackish or salt, including areas of marine water the depth of which at low tide does not exceed six metres."*
-* **Spectrum in India:** Inland marshes, floodplains, coastal lagoons, mangroves, and high-altitude alpine lakes.
+* **Ramsar Definition (Article 1.1):** Wetlands are *"areas of marsh, fen, peatland or water, whether natural or artificial, permanent or temporary, with water that is static or flowing, fresh, brackish or salt, including areas of marine water the depth of which at low tide does not exceed six metres."*
+* **Spectrum in India:** Inland freshwater marshes, riverine floodplains, coastal brackish lagoons, mangroves, and alpine glacial lakes.
 * **National Inventory:** India has **98 designated Ramsar Sites** (as of 30 January 2026, Ramsar Secretariat), covering over 1.35 million hectares.
 
 ### 1.2 Environmental Chemistry Role (CHE110 Core)
@@ -87,7 +87,7 @@
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-             --- PAGE 3 OF 8: REVIEW OF LITERATURE ---
+             --- PAGE 3 OF 7: REVIEW OF LITERATURE ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -119,82 +119,50 @@
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          --- PAGE 4 OF 8: PRODUCT DESCRIPTION (PART 1) ---
+     --- PAGE 4 OF 7: PRODUCT DESCRIPTION & CORE FEATURES ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## 3. Description of the Product (Part 1)
+## 3. Description of the Product ("Wetland Explorer")
 
-### 3.1 Overview: "Wetland Explorer" Digital Atlas
-* An open-access, scientific web application designed to bridge environmental science and public awareness.
-* **Local Production URL:** `http://localhost:3000` (Next.js 15 & React 19).
-* **GitHub Repository:** `https://github.com/Utpal4505/wetland-explorer` (Branch: `main`).
+**"Wetland Explorer"** is an interactive, open-access digital atlas developed to make India's wetland data visual, accessible, and actionable for public awareness.
 
-### 3.2 Technical Architecture
-* **Frontend:** Next.js 15 (App Router) + React 19 + TypeScript (Strict zero-error type safety).
-* **Cartography:** Leaflet / MapLibre GL paired with high-resolution **Esri World Imagery** satellite tiles.
-* **Performance:** 100% pre-rendered Static Site Generation (SSG) across **49 static routes** for fast offline-ready loading.
-* **Accessibility:** WCAG 2.1 compliant with keyboard skip-links (`#main-content`) and high-contrast Light/Dark modes.
+### Key Features & How They Work:
 
-### 3.3 Core Modules: Satellite Map & Profiles
-1. **Interactive Cartographic Map (`/map`):**
-   * Plots curated wetlands with precise WGS84 GPS coordinates across India.
-   * Dual-mode toggling between **Satellite View** (to observe real-time vegetation, boundary changes, and siltation) and **Terrain View**.
-   * Interactive preview drawers showing surface area, elevation, and direct links to dossiers.
-2. **Verified Wetland Dossiers (`/wetlands/[slug]`):**
+1. **Interactive Satellite Map (`/map`):**
+   * **Real Geospatial Exploration:** Uses high-resolution satellite imagery (Esri World Imagery) combined with OpenStreetMap to display exact wetland boundaries.
+   * **WGS84 Coordinates & Telemetry:** Every wetland is pinned with verified latitude, longitude, surface area, and elevation metrics.
+   * **Interactive Preview Drawers:** Clicking any marker opens an instant summary card with direct access to deep ecological profiles.
+
+2. **Scientific Wetland Profiles (`/wetlands`):**
    * Curates 10 flagship Indian Ramsar sites (Harike, Chilika, Sundarbans, Loktak, Keoladeo, Vembanad, Tso Moriri, Deepor Beel, Bhoj, Point Calimere).
-   * Structured tabs: Ecological Overview, Chemical/Wildlife Importance, Local Livelihoods, Threats, and Cited Sources.
+   * Detailed tabs: Ecological Overview, Water Chemistry & Livelihoods, Associated Wildlife, and Documented Pressures.
+
+3. **Biodiversity & Indicator Species Directory (`/wildlife`):**
+   * Catalogs 22 indicator taxa (Sangai Deer, Indus River Dolphin, Irrawaddy Dolphin, Gharial, Sarus Crane).
+   * Cross-references official **IUCN Red List** ratings (Critically Endangered, Endangered, Vulnerable).
+   * **Bi-directional linking:** Clicking a species shows its home wetlands; clicking a wetland shows dependent wildlife.
+
+4. **Threat Pressure Explorer (`/threats`):**
+   * Documents 6 verified pressures: Siltation, Agricultural Eutrophication, Urban Encroachment, Invasive Hyacinth, Hydrological Disruption, and Climate Extremes.
+   * Cross-references each threat with all affected wetlands using cited CPCB and Ramsar data.
+
+5. **1-Click Share & Academic Citation Tool (`ShareDossierButton`):**
+   * **Social Broadcast:** One-click pre-formatted cards for **WhatsApp**, **X (Twitter)**, and **LinkedIn** to circulate local conservation alerts.
+   * **APA Citation Generator:** Automatically copies standardized citations for college assignments:
+     > *Wetland Explorer. (2026). Harike Wetland Ecological Dossier (Ramsar Site #462, Punjab). Retrieved from http://localhost:3000/wetlands/harike*
 
 ---
-*(Paste Screenshot 1 here)*  
-**[ATTACHMENT 1: Screenshot of Satellite Map View (`/map`)]**  
-*Fig 3.1: Interactive geospatial map with GPS markers, category filters, and satellite imagery.*
-
----
-\newpage
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          --- PAGE 5 OF 8: PRODUCT DESCRIPTION (PART 2) ---
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-## 3. Description of the Product (Part 2)
-
-### 3.4 Biodiversity Directory & Indicator Species (`/wildlife`)
-* Catalogs 22 indicator taxa (Sangai Deer, Indus River Dolphin, Irrawaddy Dolphin, Gharial, Sarus Crane).
-* Integrated with official **IUCN Red List** statuses (Critically Endangered, Endangered, Vulnerable, Least Concern).
-* Bi-directional linking: Clicking any species displays all dependent wetlands; clicking a wetland shows its indicator wildlife.
-
-### 3.5 Threat Pressure Explorer (`/threats`)
-* Documents 6 verified anthropogenic pressures:
-  1. *Siltation & Catchment Erosion* | 2. *Agricultural Runoff & Eutrophication*
-  3. *Urban Encroachment* | 4. *Invasive Alien Macrophytes*
-  5. *Hydrological Disruption & Barrages* | 6. *Climate Extremes*
-* Strictly cross-references each threat with published Ramsar and CPCB records.
-
-### 3.6 Awareness & Academic Citation Toolkit (`ShareDossierButton`)
-* **1-Click Social Media Broadcast:** Pre-formatted informational cards shared to **WhatsApp**, **X (Twitter)**, and **LinkedIn** to circulate local conservation alerts.
-* **Automated APA Citation Generator:** Instantly copies standardized citations for student assignments:
-  > *Wetland Explorer. (2026). Harike Wetland Ecological Dossier (Ramsar Site #462, Punjab, India). Retrieved from http://localhost:3000/wetlands/harike*
-* **CHE110 Research Reference (`/about`):** Dedicated page explaining denitrification chemistry, blue carbon, and Ramsar criteria.
-
----
-*(Paste Screenshot 2 here)*  
-**[ATTACHMENT 2: Screenshot of Wetland Profile & Share Dossier Modal]**  
-*Fig 3.2: Harike Wetland profile showing 1-click WhatsApp share and APA citation generator.*
-
----
-*(Paste Screenshot 3 here)*  
-**[ATTACHMENT 3: Screenshot of Wildlife Directory (`/wildlife`)]**  
-*Fig 3.3: Species catalog linking endangered taxa to dependent Indian wetlands.*
+*(Paste Screenshot Box here)*  
+**[ATTACHMENT 1: Screenshot of Map View & Share Dossier Modal]**  
+*Fig 3.1: Interactive satellite map view and 1-click WhatsApp/APA citation interface.*
 
 ---
 \newpage
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         --- PAGE 6 OF 8: SIGNIFICANCE OF THE PRODUCT ---
+         --- PAGE 5 OF 7: SIGNIFICANCE OF THE PRODUCT ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -221,7 +189,7 @@
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      --- PAGE 7 OF 8: STATUS OF SOCIAL MEDIA COVERAGE ---
+      --- PAGE 6 OF 7: STATUS OF SOCIAL MEDIA COVERAGE ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -250,8 +218,8 @@
 * **Peer Feedback:** *"The interactive map made me realize Harike is right here in Punjab and supports river dolphins!"* — LPU Student.
 
 ---
-*(Paste Screenshot 4 here)*  
-**[ATTACHMENT 4: Proof of Social Media Upload with LPU Acknowledgment]**  
+*(Paste Screenshot Box here)*  
+**[ATTACHMENT 2: Proof of Social Media Upload with LPU Acknowledgment]**  
 *Fig 5.1: Proof of video publication on YouTube/Instagram displaying LPU introductory credit and engagement.*
 
 ---
@@ -259,15 +227,14 @@
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          --- PAGE 8 OF 8: CONCLUSION & BIBLIOGRAPHY ---
+          --- PAGE 7 OF 7: CONCLUSION & BIBLIOGRAPHY ---
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ## 6. Conclusion
 
 ### 6.1 Summary of Outcomes
-* **Functional Digital Tool:** Engineered and demonstrated **"Wetland Explorer"**, an accessible web atlas pre-rendered across 49 static routes.
-* **Interconnected Data:** Cross-referenced 10 representative Ramsar sites, 22 indicator taxa, and 6 documented threats using verified official sources.
+* **Functional Digital Tool:** Engineered and demonstrated **"Wetland Explorer"**, an accessible web atlas documenting 10 Ramsar sites, 22 indicator taxa, and 6 documented threats.
 * **Pedagogical Integration:** Illustrated core CHE110 concepts—denitrification pathways ($\text{NO}_3^- \rightarrow \text{N}_2$), carbon storage, and natural assimilative thresholds.
 * **Measurable Reach:** Completed a compliant 5+ minute documentary campaign garnering over 3,200 impressions with positive peer engagement.
 
@@ -286,4 +253,3 @@
 4. **Ministry of Environment, Forest and Climate Change (MoEFCC). (2017).** *Wetlands (Conservation and Management) Rules, 2017*. Regulatory framework applying to Ramsar Sites and notified wetlands. Government of India.
 5. **Ramsar Convention Secretariat. (2026).** *List of Wetlands of International Importance*. (India reached 98 Ramsar Sites as of 30 January 2026). Gland, Switzerland. https://rsis.ramsar.org
 6. **WWF-India. (2022).** *Conservation Issues at Harike Lake*. Critical Regions: Freshwater & Wetlands Programme. New Delhi: World Wide Fund for Nature - India.
-7. **Zoological Survey of India (ZSI). (2022).** *Faunal Diversity in Ramsar Wetlands of India*. Kolkata: Director, ZSI.
